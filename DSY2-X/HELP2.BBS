@@ -1,0 +1,31 @@
+P)assword, Help L)evel, N)ulls, W)idth, H)eight, T)erminal, "M)ore", 
+S)ingle-key, Q)uit or ? for help
+
+@M There is more help available, display it
+     Change your:-
+
+   P Password
+   H Help level (1 to 3)
+   N Number of Nulls sent before each line 
+   W Width of your screen
+   H Height of your screen
+   T Terminal type
+   M Toggle "M)ore?" page breaks
+   S Toggle single key input 
+   Q or <CR> to leave
+or ? for help.
+
+@M Display more about 'T' and 'S' 
+          Terminal Type
+You may select :-
+ Dumb : None of those below.
+ Soroc : Soroc terminal, or emulator such as Apple CP/M
+ ANSI : ANSI compatible, such as IBM with ANSI.SYS installed
+ DATAMEDIA : Apple 80col. card
+If you select a non-dumb terminal cursor and screen control codes 
+will be used to provide a neat screen display. 
+
+          Single key input
+If you set this ON then all 1 character inputs will prompt with "_" and you 
+need only enter a single character; no <Return> is needed.
+

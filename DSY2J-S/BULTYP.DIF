@@ -1,0 +1,12 @@
+
+{ multiple Bulletins }
+type Bultype = record
+                  selector:char;
+                  Bulfile:st14;
+                  return:boolean;
+                  fill:array [1..19] of byte
+               end;
+
+var Bulsf : file of Bultype;
+
+

@@ -1,0 +1,16 @@
+This is a demo program for the Daisy O)utside function for use with a SSC
+Daisy.
+
+It may be used by inserting the line "OUTSIDE FILE NAME = d:OUTSIDE.SUB" in
+your system option file and installing a text file called "OUTSIDE.SUB" on
+drive "d:".
+
+The first line of the OUTSIDE.SUB should contain a "CHAIN d:LIFE13.CHN"
+meta-statement (don't forget to put LIFE13.CHN on drive d:). The second
+line should then be "d:BBS sysopt.bbs" or as needed to return to Daisy.
+
+Life13 will only work correctly if the carrier signal is true.
+
+
+Raymond Lowe
+

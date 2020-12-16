@@ -1,0 +1,42 @@
+
+{ multiple areas }
+type areatype = record
+                  indexdrive,textdrive:char;
+                  accesspriv,
+                  enterpriv,
+                  killpriv,
+                  killanypriv,
+                  readprivatepriv : byte;
+                  attribute:integer; {0=normal,1=netmail,2=echomail}
+                  selector:st14;
+                  name:st40;
+                  forwardnet, forwardnode: integer; {echomail}
+                  hurlpriv:integer;
+                  highmsg:integer;
+                  fill:array [1..57] of byte
+               end;
+const maxareas = 20;
+
+const nularea:areatype = ( { default values ? }
+indexdrive:'A'; textdrive:'A';
+accesspriv:20;
+enterpriv:20;
+killpriv:30;
+killanypriv:100;
+readprivatepriv:100;
+attribute:0;
+selector:'';
+name:'';
+forwardnet:1;forwardnode:-1;
+hurlpriv:80;
+highmsg:0;
+fill:(
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+)
+);
+
+var areasf : file;
+    area : areatype; { present area }
+    areanum: integer; { present area number }
+

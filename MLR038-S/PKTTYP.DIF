@@ -1,0 +1,17 @@
+type packetheadertype = record
+                           orignode,
+                           destnode,
+                           year,
+                           month,
+                           day,
+                           hour,
+                           minute,
+                           second,
+                           baud,
+                           pkttype, { always 02h 00h }
+                           orignet,
+                           destnet : integer;
+                           productcode : byte;
+                           fill : array [1..33] of byte
+ end;
+

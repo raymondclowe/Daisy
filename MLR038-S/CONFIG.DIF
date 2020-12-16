@@ -1,0 +1,78 @@
+
+type ConfigType = record
+                     ConnectsLimit,
+                     WaitCarrierDelay,
+                     BetweenCallsDelay,
+                     BossNode,
+                     BossNet,
+                     WindowLength,
+                     OurZone,
+                     OurPoint,
+                     MaxBaud : integer;
+                     nodeLstDrv,
+                     WorkDrv,
+                     FileAttachDrv,
+                     PrimaryEventCode,
+                     SecondaryEventCode : char;
+                     DoFullWindow,
+                     DoTossMail,
+                     DoScanMail,
+                     ignorefiles,
+                     KeepMailLog,
+                     AppendLogToDaisyLog,
+                     ReceiveOnly,
+                     SendOnly,
+                     pollable, { make pkt even if no mail }
+                     preservepackets,
+                     tryPickUp : boolean;
+                     SysopName,
+                     BBSName : st36;
+                     DialStr : st8;
+                     dialSufix : st4;
+                     busystr,
+                     InitStr : st20;
+                     allowhuman : boolean;
+                  end;
+
+{ Pre-initialized VARIABLE }
+const defaultConfig : configtype = (
+ConnectsLimit : 6;
+WaitCarrierDelay : 45;
+BetweenCallsDelay : 120;
+BossNode : 0;
+BossNet : 0;
+WindowLength : 3600;
+OurZone : 0;
+OurPoint : 0;
+MaxBaud : 1200;  { overwridden by sysmaxbaud in perams.inc }
+nodeLstDrv : ' ';
+WorkDrv : ' ';
+FileAttachDrv : ' ';
+PrimaryEventCode : 'W';
+SecondaryEventCode : ' ';
+DoFullWindow : false;
+DoTossMail : true;
+DoScanMail : false;
+ignorefiles : false;
+KeepMailLog : true;
+AppendLogToDaisyLog : false;
+ReceiveOnly : false;
+SendOnly : false;
+pollable : false;
+preservepackets : false;
+trypickup : true;
+SysopName : '';
+BBSName : '';
+DialStr : 'ATD';
+DialSufix : '|';
+busystr : '|ATM0H1|';
+InitStr : '';
+allowhuman : true
+);
+
+var configf : file;
+    ConfigB : array [1..256] of byte;
+    config  : configtype absolute configB;
+    cfg     : configtype absolute configB;
+
+

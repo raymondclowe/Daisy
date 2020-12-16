@@ -1,0 +1,120 @@
+  1. Network Layer Data Definition : the Packet Header
+ 
+      The  packet contains messages in packed format to be transferred  over
+      the  net during a connection.  As this data structure is  transferred,
+      its definition is critical to FidoNet.
+ 
+      A  packet may contain zero or more packed messages.  A packet  without
+      messages is often generated as a poll packet.
+ 
+      Every  packet begins with a  packet header.  The fields of the  packet
+      header are of fixed length.
+ 
+ 
+                                Packet Header
+       Offset
+      dec hex
+              .-----------------------------------------------.
+        0   0 | origNode (low order)  | origNode (high order) |
+              +-----------------------+-----------------------+
+        2   2 | destNode (low order)  | destNode (high order) |
+              +-----------------------+-----------------------+
+        4   4 |   year (low order)    |   year (high order)   |
+              +-----------------------+-----------------------+
+        6   6 |  month (low order)    |  month (high order)   |
+              +-----------------------+-----------------------+
+        8   8 |   day (low order)     |   day (high order)    |
+              +-----------------------+-----------------------+
+       10   A |   hour (low order)    |   hour (high order)   |
+              +-----------------------+-----------------------+
+       12   C |  minute (low order)   |  minute (high order)  |
+              +-----------------------+-----------------------+
+       14   E |  second (low order)   |  second (high order)  |
+              +-----------------------+-----------------------+
+       16  10 |   baud (low order)    |   baud (high order)   |
+              +-----------------------+-----------------------+
+       18  12 |    0     |     2      |    0      |    0      |
+              +-----------------------+-----------------------+
+       20  14 | origNet (low order)   | origNet (high order)  |
+              +-----------------------+-----------------------+
+       22  16 | destNet (low order)   | destNet (high order)  |
+              +-----------------------+-----------------------+
+       24  18 |      ProductCode      |                       |
+              +-----------------------+                       |
+              |                     fill                      |
+              ~                   33 bytes                    ~
+              +-----------------------+-----------------------+
+       58  3A |                 zero or more                  |
+              ~                    packed                     ~
+              |                   messages                    |
+              +-----------------------+-----------------------+
+              |    0     |     0      |    0      |    0      |
+              `-----------------------------------------------'
+ 
+
+
+
+
+
+
+
+                                                                               13
+
+
+      Packet       = PacketHeader  { PakdMessage }  00H 00H
+ 
+      PacketHeader = origNode   (* of packet, not of messages in packet *)
+                     destNode   (* of packet, not of messages in packet *)
+                     year       (* of packet creation, e.g. 1986 *)
+                     month      (* of packet creation, 0-11 for Jan-Dec *)
+                     day        (* of packet creation, 1-31 *)
+                     hour       (* of packet creation, 0-23 *)
+                     minute     (* of packet creation, 0-59 *)
+                     second     (* of packet creation, 0-59 *)
+                     baud       (* max baud rate of orig and dest, 0=SEA *)
+                     PacketType (* old type-1 packets now obsolete *)
+                     origNet    (* of packet, not of messages in packet *)
+                     destNet    (* of packet, not of messages in packet *)
+                     ProductCode(* 0 for both Fido and SEAdog *)
+                     fill[33]
+ 
+      PacketType   = 02H 00H  (* 01H 00H was used by Fido versions before 10
+                                 which did not support local nets.  The
+      packed
+                                 message header was also different for those
+                                 versions *)
+ 
+      ProductCode  = (  00H      (* Unassigned *)
+                     |  01H      (* Rover *)
+                     |  02H      (* SEAdog!? *)
+                     |  ??H      (* Please apply for new codes *)
+                     )
+ 
+ 
+      The  remainder of the packet consists of packed messages.  Each packed
+      message  begins  with  a  message type word 0200H.   A  pseudo-message
+      beginning with the word 0000H signifies the end of the packet.
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

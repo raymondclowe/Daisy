@@ -1,0 +1,20 @@
+ type attribtype = set of (private,crash,recd,sent,fileattached,intransit,
+                           orphan,killSent,local,holdforpickup,unused,
+                           filerequest,returnreceiptrequest,IsReturnReceipt,
+                           auditrequest,fileupdatereq);
+
+
+ type messageheadertype = record
+      messagetype : integer;
+      orignode : integer;
+      destnode : integer;
+      orignet : integer;
+      destnet : integer;
+      attribute : attribtype;
+      cost : integer;
+      { datetime <= 20 nul terminated }
+      { to user name <= 36 nul terminated }
+      { from user name <= 36 nul terminated }
+      { subject user name <= 72 nul terminated }
+      { text unbounded nul terminated }
+      end;

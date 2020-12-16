@@ -1,0 +1,21 @@
+M)essages, G)oodbye, C)hange, U)sers Y)ell B)ulletins, E)ditorial, 
+O)utside, *)dump, V)ersion or ? for help
+<Not all of these commands may be available to you on any system>
+
+@M Do you want more help
+   M Enter the Message area
+   G Goodbye, disconnect for the system
+   C Change your personal settings
+   U Display User list
+@P030S
+   Y Yell at the Sysop
+   B Display bulletin(s)
+   E Display editorial
+@P060S
+   O Go outside Daisy
+@P100S
+   * Access sysop menu
+   V Version of this Daisy
+or ? for help: 
+
+

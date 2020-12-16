@@ -1,0 +1,1096 @@
+===========================================================================
+Daisy Version 2            Sysops' Documentation               January 1988
+---------------------------------------------------------------------------
+
+
+This manual
+-----------
+
+This manual describes the use of the Daisy system from the point of view of 
+the system operator, SYSOP, it includes a description of what to expect 
+from the system in normal usage, how to use the sysop commands, how to set 
+the system options, how to use the various special features, and how to 
+maintain the system.
+
+
+The Sysop screen
+--- ----- ------
+
+The use of Daisy, from the point of view of the sysop, centers on the main 
+"Sysop screen"; this display shows information needed to run the system and 
+allows the sysop to activate some important options. It is divided by 
+dashed lines into three parts; the Status line, the Sysop menu, and the 
+Display window.
+
+Status Line
+------ ----
+At the top of the display is the status line, this contains indicator the 
+show the status of various parts of the system.
+
+These are "Waiting" (for a caller) or "On-Line", "Off(On)-Hook" and 
+"Carrier".
+
+At the extreme right of the status line the current system date will be 
+shown, this will only be "correct" if you have a Daisy compatible clock 
+installed, otherwise it will be the date string set from the On-line Sysop 
+menu.
+
+Sysop Menu
+----- ----
+In the middle of the screen is the sysop menu, from which you can select 
+the various Sysop options.
+
+Display window
+------- ------
+The lower part of the screen is used as a multi-purpose area for displaying 
+information.
+
+
+
+Using the Sysop Menu
+----- --- ----- ----
+
+This menu is cursor driven, to pick an option you must to move the cursor, 
+a '->', to the required option, then use <Return> key to select that 
+option.
+
+The cursor can be moved directly to an option by entering the number beside 
+that option, or the cursor can be moved using various keys including the 
+keys E, S, D and F.
+
+
+
+
+
+The Sysop Options
+--- ----- -------
+There are eight options available:-
+
+1)   * Start Local Session, 
+2)     Display user information, 
+3)     (De-)Activate spy mode, 
+4)   * Event,                            
+5)     (Don't-)Allow yell, 
+6)   * Edit user list, 
+7)   * Terminal mode and 
+8)     (Don't-)Exit.
+
+* These options may only be activated while Daisy is "Waiting-for-caller"; 
+while a user is connected to Daisy they are not available.
+
+
+Start Local sessions
+----- ----- --------
+While in the "waiting-for-caller" mode you can start a local session of the 
+BBS at the local console, this will produce exactly the same result on your 
+screen as you would achieve from logging on using a modem. 
+
+As soon as you use the G)oodbye command from within the BBS you will be 
+returned to the sysop level.
+
+The modem will go Off-Hook during the local session, so any callers will 
+receive an engaged signal.
+
+
+
+Display user information
+------- ---- -----------
+This will display the name of the presently logged on user or, if there is 
+no user logged on, the last user and that users privilage level. Before a 
+user has logged on this will display nothing.
+
+
+(De-)Activate Spy mode
+------------- --- ----
+This option toggles between the two states, spy mode on, and spy mode off. 
+While spy mode is on and there is a user logged on to the system the local 
+console will echo what the user is receiving. If there is a user logged on 
+when you activate spy mode the display will start at once. But if there is 
+no user the sysop menu will remain on-screen until a session is started by 
+a user calling.
+
+From spy mode you can de-activate spy mode at any time using the <ESC> key. 
+(see more below)
+
+
+Start Event                                 ** New **
+----- -----
+Selecting this option lets you transfer control of the computer to one of 
+27 possible a sysop defined SUBmit file. (see the section on Outside and 
+Event below).
+
+
+(Don't-)Allow yell
+------------- ----
+This option toggles the system option (see the section on system options 
+below) "Allow yell" on and off.
+
+If the user selects the Y)ell command from the main menu, and allow yell is 
+true, then Daisy will start beeping to page the Sysop. You can use the 
+Y)ell command from Spy mode (see below) as usual to chat with the user 
+regardless of the AllowYell setting. 
+
+Note: What is shown on the menu is the reverse of the current state; Daisy 
+is offering you the option of switching from the present state to that 
+indicated by option #5.
+
+
+Edit user list
+---- ---- ----
+Activate the user list editor.
+(see section below)
+
+
+Terminal mode
+-------- ----
+Activate the Daisy built-in terminal program. <Esc> returns to the sysop 
+menu.
+
+
+Exit
+----
+The exit command will take you to the CP/M command line prompt if there is 
+no user logged on. If there is a user logged on then a flag will be set 
+that will not be acted upon until the user logs off.
+
+If you are waiting to use the system, but do not want to just disconnect a 
+user you can select this command. Then the system will go down as soon as 
+the user is finished with it.
+
+If you select Exit while a user is on-line, then change your mind, you can 
+select the same option, which will have changed to "Don't Exit", to clear 
+the exit flag.
+
+
+
+
+
+
+Spy Mode 
+--- ---- 
+While a user is logged on and spy mode is activated, either because it was 
+active when the user called or because you used option #3, the local 
+display will show everything that the user is seeing on his own terminal.
+
+While in this mode you have two commands available, Y)ell at user, and 
+ESC)ape from spy mode.
+     
+
+     Y)ell
+     -----
+     Entering either Y or Ctrl-Y will put you into Yell mode. To exit Yell 
+     mode use the <ESC> key. 
+   
+          While in yell mode you can chat with the logged on user by 
+          typing on your keyboard. <CRs> will be inserted to prevent words 
+          being split across two lines; this formatting will be performed 
+          separately to match both the local and remote terminal widths.
+
+          You need only press <Enter> when you wish your caller to type, a 
+          double linefeed is issued to make it clear that you have 
+          finished.
+
+     <ESC>ape
+     -------
+     Pressing the <ESC> key will exit Spy mode and return you to the sysop 
+     menu.
+     
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+
+User list Editor
+---- ---- ------
+
+
+Selecting option #6 from the Sysop menu activates the User list editor.
+
+The first record of the user list, number 0, is at once displayed in the 
+display window at the bottom of the screen.
+
+You can use the cursor controls to select the user/field, then <Return> 
+will select that field to change. 
+
+"K" will delete or undelete that user by adding or removing a lower case 
+"d" from the beginning of the first field. 
+
+<ESC> leaves the user list editor and returns you to the Sysop menu. The 
+last record remains in the display window for your reference.
+
+
+The stand alone utility PACKUSER.COM can be used to remove deleted records 
+from the userlist to reduce its size.
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+
+System Option Command File
+------ ------ ------- ----
+
+Introduction
+------------
+     Many of the major features of Daisy are controlled by variables 
+internal to Daisy. These are known as the system options, they can be 
+changed using the system option command file. 
+
+     This powerful feature allows you to change many of the operating 
+characteristics of Daisy.
+
+
+Command file specification                     ** New **
+------- ---- -------------
+You may specify the name of the command file from the CP/M command line in 
+the following manner -
+
+A>BBS B:MYSETUP.BBS
+
+When no file name is given in the command line tail Daisy will search first 
+the current drive and then drive A: for a file called "SYSOPT.BBS", this 
+maintains compatibility with previous versions of Daisy.
+
+If Daisy cannot find a command file then default values will be used for 
+all of the system options.
+
+
+Line processing
+---- ----------
+Blank lines, spaces within lines, and the case of letters are all ignored 
+in the command file.
+
+Anything to the right of a semicolon ";" on a line is ignored as a comment.
+
+
+Parsing
+-------
+The first symbol on a line is generally the name of the system option that 
+will be changed by this command. It is followed by an "=" and then the 
+value to be assigned to that system option.
+
+For example the system option "Allow yell" is a boolean value, it can be 
+set by a line such as "Allow yell = TRUE". All system options have defaults 
+which will be used if the system option is not mentioned in the SYSOPT.BBS.
+
+
+
+System Option Definitions
+------ ------ -----------
+
+These various system options are defined below in this format.
+------------------------------------------------------------------ 
+>    SYSTEM OPTION                           Type      Default   <
+>    Meaning                                                     <
+------------------------------------------------------------------ 
+The "Type" may be one of the following three :-
+
+     Boolean        : "true" or "false"
+
+     Integers       : Standard Turbo Pascal integer format
+
+     File names     : Standard CP/M d:filename.ext form where d: and .ext 
+                      are optional. If the drive (d:) is not specified then 
+                      the logged drive is used.
+
+     Drive          : A single letter in the range A to P indicating a disk 
+                      drive.
+
+A default value of "null" means that the value is a blank, this can be 
+generated from the command file by having nothing following the "=" on that 
+line.
+
+
+ALLOW NEW USERS                         Boolean   True
+If true then when a person with a name that is not on the user list calls 
+they will be added to the user list as a new user.
+
+When false such a person is not allowed to register on the system.
+
+
+ALLOW YELL                              Boolean   False
+Sets the initial value of this option, it can be switched from the sysop 
+menu. When true users with a high enough privilage level may page the 
+operate with the Y)ell command, otherwise they are told that the sysop is 
+unavailable.
+
+
+AREAS DRIVE                             Drive     null    ** New **
+The drive on which the AREAS.BBS file containing information on the multi-
+message areas is to be stored.
+
+
+AREA MAINT PRIVILAGE LEVEL              Integer   95      ** New **
+The privilage level required to access the area maintenance menu from the 
+On-Line Sysop menu.
+
+
+BULLETIN FILE NAME                      Filename  null
+The filename of the main system bulletin file.
+
+
+BULLETIN LIST DRIVE                     Drive     null
+The drive of the multiple bulletin list. (See Multiple-Bulletin section 
+below)
+
+
+CLOCK                                   Integer   null     ** New **
+When null the sysop level D)ate command controls the date string used as 
+the system date. When CLOCK = n the date is taken from a real-time clock 
+card in slot #n.
+
+
+COUNT TIMES READ                        Boolean   TRUE
+When true the number of times each message has been read is displayed on 
+the first line of the message header. Setting this option to false speeds 
+up message reading, particularly from floppies.
+
+
+CP/AM                                   Boolean   False   ** New **
+When set true this makes the submit file handling compatible with the CP/AM 
+CCP. 
+
+
+EDITORIAL FILE NAME                     Filename  null
+The filename of the system editorial, if it is null then Daisy won't try to 
+show an editorial.
+
+
+EVENT DRIVE                             Drive     Null    ** New **
+Name of drive containing the event submit files. 
+
+
+GENERAL DRIVE                           Drive     A
+The drive used for general files, in this version of Daisy this is only 
+used for the CALLS.BBS file that stores the number of calls to the system.
+
+
+HELP DRIVE                              Drive     Null
+The drive of the HELP?.BBS files. When null the default drive is used.
+
+
+HIGHEST DRIVE                           Drive     F       ** New **
+The highest valid drive in your system. This is used in the validity 
+checking of filenames, such as in the T)ype commands, so it is advisable to 
+set it correctly.
+
+
+LOG CALLERS                             Boolean   False   ** New **
+When true information is written to the system log file of all attempts to 
+logon to Daisy.
+
+
+LOG EVERYTHING                          Boolean   False
+Used to determin if all user activity should be copied to a log file.
+
+
+MAILER                                  Boolean   False    ** New **
+Tells Daisy that it is being used in conjunction with the MAILER package.
+
+
+NET                                     Integer   1        ** New **
+The FidoNet net address.
+
+
+NEW USER PRIVILAGE LEVEL                Integer   20
+The privilage level given to new users when they first log-on.
+
+
+NODE                                    Integer   -1       ** New **
+The FidoNet node address.
+
+
+OUTSIDE FILE NAME                       Filename  Null
+Name of the submit file containing the commands for Outside.
+
+
+OUTSIDE PRIVILAGE LEVEL                 Integer   60
+Privilage level required for a user to activate the Outside option.
+
+
+QUIET                                   Boolean   True
+When true the command ATM0 is used to turn off the modem speaker.
+
+
+RECORD NUMBER OF CALLS                  Boolean   True
+When try a text file called CALLS.BBS contains a single integer value that 
+is the total number of calls the system has received.
+
+
+RECORD LAST USER                        Boolean   False
+When true saves a file to disk containing details of the last user.
+
+
+SYSOP MENU PRIVILAGE LEVEL              Integer   100
+Privilage level required to access the remote on-line Sysop menu.
+
+
+SYSTEM LOG FILE NAME                    Filename  DAISYLOG
+Name of the file in which to log user activity if LOGEVERYTHING or 
+LOGCALLERS is true, a number is automatically appended as the extention. 
+
+
+SYSTEM LOGO FILE NAME                   Filename  null
+Name of the file in which the system logo is stored, if null then Daisy 
+doesn't try to show any logo.
+
+
+USER LIST DRIVE                         Filename  null
+Drive on which the user list file is stored. A value of null means that the 
+default drive is used.
+
+
+YELL PRIVILAGE LEVEL                    Integer   30    ** New **
+The privilage level that a user is required to have if they want to use the 
+Yell command from the main menu. If allow yell is turned off then even 
+having a high enough privilage level will not cause paging of the sysop.
+
+
+
+"Meta options"
+----- --------
+In addition there system options there are two "meta" options which, alone 
+on a line, have the effects as indicated below:--
+
+END
+This marks the end of the processable commands, anything after this is 
+ignored.
+
+
+DEBUG
+All lines after this are displayed on the local screen as they are read in, 
+and as parsed.
+
+
+
+
+Example
+-------
+This example gives shows the default values of all system options. Note: 
+Using this file would have the same effect as have *no* SYSOPT.BBS at all.
+
+ ----------------------------------------------
+ ! ; this is the example file for SYSOPT.BBS  !
+ !                                            !
+ ! areas drive     =                          ! <-- ** New **
+ ! user list drive =                          !
+ !                                            !
+ ! system logo file name =                    !
+ ! bulletin file name    =                    !
+ ! bulletin list drive   =                    !
+ ! outside file name     =                    !
+ ! editorial file name   =                    !
+ !                                            !
+ ! event drive   =                            ! <-- ** New **
+ ! Help drive    =                            !
+ ! general drive = A                          !
+ ! Highest drive = F                          ! <-- ** New **
+ !                                            !
+ ! system log filename = DAISYLOG             !
+ ! logeverything       = FALSE                !
+ ! logcallers          = FALSE                ! <-- ** New **
+ ! CP/AM               = False                ! <-- ** New **
+ !                                            !
+ ! allow new users = TRUE                     !
+ ! allow yell      = FALSE                    !
+ !                                            !
+ ! Count times read       = TRUE              !
+ ! record last user       = FALSE             !
+ ! record number of calls = TRUE              !
+ !                                            !
+ ! new user privilage level         = 20      !
+ ! Outside privilage level          = 60      !
+ ! Sysop Menu privilage level       = 100     !
+ ! yell privilage level             = 30      ! <-- ** New **
+ ! Area Maint privilage level       = 95      ! <-  ** New **
+ !                                            !
+ ! mailer = false                             ! <-- ** New ** 
+ ! net = 1                                    ! <-- ** New **
+ ! node = -1                                  ! <-- ** New **
+ !                                            !
+ ! Quiet = true                               !
+ ! CLOCK =                                    ! <-- ** New **
+ !                                            !
+ ! End                                        !
+ ! As much comments as you want can be put    !
+ ! after the end statement                    !
+ ----------------------------------------------                
+
+                                               
+You may put drive identifiers before filenames, such as A:BULLETIN.BBS, and 
+so on to place the files on different drives.
+ 
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+
+On-line Sysop Menu
+------- ----- ----
+
+
+Introduction
+------------
+To allow for more flexible Sysop functions, and to allow some degree of 
+sysop maintenance to be performed by a remote user, Daisy provides a
+Remote On-Line Sysop Menu. 
+
+
+Privilage
+---------
+To access the Sysop menu a user must have at least the privilage specified 
+by the SYSOP MENU PRIVILAGE LEVEL system option, this is 100 by default.
+
+
+If a user has a high enough privilage level then the command "*" is visible 
+in the main menu. Selecting this enters the Sysop Menu.
+
+The commands available to the remote sysop are A)reas, B)uls, R)enum, 
+S)tats and Q)uit.
+
+
+A)reas                                            ** New **
+------
+This leads you to the Multiple Message Area maintenance menu.
+(see section on multiple message areas)
+
+B)uls
+-----
+Selecting this commands allows the remote sysop to specify, and edit, the 
+multiple bulletin list. To use the command a BULLETIN LIST DRIVE must have 
+been specified.
+(see the section on multiple bulletins for details)
+
+
+R)enum
+------
+This command renumbers a message area, it takes approximately 1 minute per 
+100 messages, plus an additional time to update the userlist that varies 
+depending upon the length of that list.
+
+Daisy will prompt you to enter the number of the area to be renumbered. The 
+renumber process takes three passes during which a rotating indicator lets 
+you know that Daisy is working.
+
+
+S)tats
+------
+Daisy will prompt you to enter the number of the area for which you want 
+statistics. This command displays a number of useful pieces of information 
+concerning the selected message area.
+
+Of particular importance are the usage figures for the message files; by 
+monitoring these it is possible to know when to kill or renumber the 
+messages to prevent the message files from growing.
+
+
+D)ate                                   ** New **
+-----
+This lets you enter a 15 character date string that is used to time stamp 
+messages. You must input exactly 15 characters, the recommended format is 
+"01-Jan-88 00:00" or "01 Jan 88 00:00".
+
+If you are using Daisy with a clock card then this option will only display 
+the current time.
+
+
+T)ype                                   ** New **
+-----
+Display a text file. Only minimal error checking on the filename or the 
+file is performed.
+
+
+Q)
+--
+Entering Q, or return alone, exits the Sysop menu.
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+ 
+
+Multiple Message Areas                       ** New **
+-------- ------- -----
+
+
+Introduction
+------------
+Daisy Version 2 now supports multiple message areas, each area functions in 
+a very similar fashion to the single area in previous versions of Daisy.
+
+The additions to handle the multiple areas consists of the A command on the 
+message read menu to change message areas, the H)url command to move 
+messages from area to area, and the A) option on the on-line sysop menu to 
+perform area maintenance.
+
+
+Areas command
+----- -------
+The area command that allows users to switch from one message are to 
+another are explained fully in the user manual.
+
+
+Hurl
+----
+While at the read message prompt this command will copy the current message 
+to another area. Daisy will prompt you for the area number to which you 
+wish to copy the message - if you wish to you might then Kill the original 
+message thereby "moving" the message.
+
+If you are Hurling to a net mail area Daisy will prompt you to address the 
+message to a net/node, and gives you the option to set or clear the Sent 
+flag. Hurling a message from "Sysop" to a netmail area gives the option to 
+change the name to something more meaningful on another board.
+
+
+A file called AREAS.BBS, stored on the drive specified by the sysopt AREAS 
+DRIVE, contains a record for every message area.
+
+
+A)reas Maintenance
+------ -----------
+If a user has a high enough privilage level (more or equal to AREAS MAINT 
+PRIVILAGE LEVEL) he can access the Areas maintenance menu from the On-Line 
+sysop menu. This menu provides access to the data stored in AREAS.BBS, and 
+lets the sysop set and edit the settings.
+
+The commands then available are L)ist to display the current areas, A)dd to 
+a new message area record, E)dit to set up or modify the parameters for an 
+area, and Q) to quit.
+
+
+
+
+Area Parameters
+---- ----------
+Selector
+   A single word up to 14 characters long that is used to chose that area 
+from the area menu.
+
+Name
+   The full name of the area.
+
+Index Drive
+   The drive on which the MSGINXnn.BBS file is stored.
+
+Text Drive
+   The drive on which the MSGTXTnn.BBS file is stored.
+
+Access priv 
+   The privilage level required to access this area, the area is not 
+available to a user with a privilage level less than this.
+
+E)nter priv
+   The privilage level required to enter a message in that area, this 
+includes R)eplies.
+
+K)ill priv
+   The privilage level required for a user to kill a message to or from 
+themselves.
+
+Kill any priv
+   Privilage level required to kill any message, regardless of who it is to 
+or from.
+
+Read private priv
+   Privilage level required to read all messages, regardless of private 
+status. Note: If this privilage level is less than the access privilage 
+level for the area then it is *not* possible to enter private messages in 
+that area.
+
+Hurl from priv
+   Privilage level required to use the Hurl command from that area.
+
+Attribute
+   This may take a value of 0, 1 or 2. "0" is a normal message area, "1" is 
+a net mail area, and "2" is an echo mail area. (Note: Netmail and Echomail 
+require the user of the separate MAILER package which at the time of 
+writing is not yet released)
+
+
+
+Once you have entered/changed the perameters of an area Daisy will then 
+prompt "Okay to save changes" giving you a chance to back out of any 
+changes you may have made.
+
+In practice you will often use this command simply to check the settings of 
+a particular area - in this case always select "N" to the final prompt to 
+prevent any accidental changes to the AREAS.BBS file.
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+ 
+
+Multiple Bulletins
+-------- ---------
+
+
+Introduction
+------------
+In addition to the normal bulletin file, which is similar to the editorial 
+file, Daisy supports Multiple Bulletins.
+
+This feature is activated by using the system option BULLETIN LIST DRIVE. 
+If a drive is specified then a file is stored on that drive containing the 
+information required to display multiple bulletins.
+
+
+Bulletin Menu
+-------- ----
+When the multiple bulletin feature is selected by the user, usually via the 
+B command from the main menu, a Bulletin Menu is displayed. This menu is 
+taken from a text file that the Sysop provides.
+
+
+Selectors
+---------
+Each of the different bulletins has a "selector", this is a single 
+character that, when entered by the user, will cause that bulletin to be 
+displayed.
+
+
+Exit selector
+---- --------
+This is a special selector used to Exit from the Multiple Bulletin. 
+
+If set to "*" the multiple bulletin will "auto exit"; entering return alone 
+will exit, and after displaying a single bulletin the function will exit. 
+
+Otherwise the menu is re-displayed after a bulletin is viewed.
+
+
+
+Bulletin List
+-------- ----
+The bulletin list is a file, on the drive specified by BULLETIN LIST DRIVE, 
+that contains a list of the different files together with their selectors 
+available that make up the multiple bulletin.
+
+The bulletin list also stores the name of the bulletin menu, and the exit 
+selector.
+
+
+
+B)uls
+-----
+By selecting B from the remote on-line Sysop menu you can add to or alter 
+the bulletin list.
+
+
+
+
+Alternatives combinations
+------------ ------------
+There are four different combinations of bulletins, the first two are the 
+same as those available in previous versions of Daisy. The latter two 
+involve the use of Multiple Bulletins.
+
+
+1.   If neither multiple bulletin nor a bulletin file are specified then no 
+     bulletin is displayed at log-on and the B command from the main menu is 
+     not available.
+
+2.   If only a bulletin file is specified then the bulletin file displayed 
+     at log-on, and can be re-displayed by selecting the B command from the 
+     main menu.
+
+3.   If both a bulletin file and a multiple bulletin are specified then the 
+     bulletin file is displayed at log-on, with the multiple bulletin 
+     available via the B command from the main menu.
+
+4.   If only a multiple bulletin is specified then the multiple bulletin is 
+     offered at log-on, and also available via the B command from the main 
+     menu.
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+
+Text File Meta Commands                ** New *:
+---- ---- ---- --------
+In the various text files that Daisy may display, such as bulletins and 
+help files, you may use special "Meta commands" to control the display.
+
+Each command is a single line with the "@" character in the first position 
+on that line.
+
+
+Commands
+--------
+
+@
+Do not display anything after this.
+
+@L 
+Do not issue a linefeed after displaying the next line.
+
+@M xxxxxxxxxxxxxxx
+Pause and prompt "xxxxxxxxxxxxxxx? [Y,n]", if the user responds 'N' no more 
+of the file will be displayed, otherwise display will continue.
+
+@Pnnn
+Only display after this line if the user's privilage level is at least nnn.
+
+@PnnnS
+Skip the next line if the user's privilage level is less than nnn.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+
+Outside and Event
+------- --- -----
+
+These two facilities, introduced in version 1d of Daisy, allow programs and 
+commands external to Daisy to be activated.
+
+The two functions are grouped together because they both work the same way, 
+the major difference between them is that Outside is a user activated 
+feature, while Event is a sysop activated one.
+
+
+Submit files
+------ -----
+What these two function do is to read in a specified file, containing 
+commands that you want performed, and converting them into a $$$.SUB files. 
+This is the same feature of CP/M as that used by the SUBMIT command. 
+
+(If the CP/AM sysopt is set true the Daisy will use the special SUBMIT 
+format required by CP/AM systems)     ** New **
+
+Don't worry if you are already calling Daisy from a submit file; Daisy will 
+append the new commands to the old ones, the new commands begin performed 
+first.
+
+
+Multiple Events                                  ** New **
+-------- ------
+On the event drive you can have as many files as you want named EVENT.d 
+where d is a letter from A to Z. Each of these can be activated from the 
+Sysop menu by entering the appropriate letter.
+
+Note: Events A to F are reserved by Daisy, and may be used automatically by 
+the system. 
+
+
+
+Format
+------
+Each submit file should be standard ASCII files contain lines such as those 
+you would type in to the CCP:-
+
+DIR
+B:
+A:BBS
+
+These are all valid lines.
+
+Unlike SUBMIT Daisy does not convert ^x into a control character, and there 
+is no facility for $n options.
+
+
+Don't forget that to use this facility you must have room on your A: drive 
+to hold the $$$.SUB file, and it must of course not be write protected.
+
+
+In order to return control to Daisy don't forget to re-start BBS as the 
+last line in your Outside and Event files.
+
+
+
+CHAIN Meta command
+----- ---- -------
+If the first word of the first line of a SUBMIT file is "CHAIN" Daisy 
+treats that first line as a special meta command. 
+
+The filename following "CHAIN" will be activated using the Turbo Pascal 
+Chain feature (it must therefore obviously be a Turbo Pascal .CHN file). 
+The text following the filename, up to 80 characters, will be passed to the 
+calling program as the first available memory variable of type STRING[80]. 
+
+Any subsequent lines, such as "BBS" to return to Daisy, will be treated 
+normally.
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+
+System Maintenance
+------ -----------
+
+
+System maintenance consists of performing general file maintenance on the 
+system files, including backing up and ensuring that the disk media is 
+error free.
+
+
+File maintenance
+---- -----------
+Daisy makes use of a number of disk files, these form the "history" and the 
+character of your BBS they are very important if you are running a BBS.
+
+User file
+---- ----
+This file is where Daisy maintains a record of all the callers to your 
+system, it allows Daisy to remember the name, password, and various 
+preferences of each user.
+
+By using the user list editor, described above, which is available from the 
+Sysop main menu, you can edit the user list. 
+
+The utility program PACKUSER.COM can be used to remove deleted records from 
+the user list, and also to recover from a corrupted userlist. See the 
+documentation of that program for details.
+
+
+Message files
+------- -----
+To keep the size of the message files to a reasonable size it is important 
+to regularly kill old messages. It is wise to encourage the users to 
+occasional go though the message base killing old messages to or from 
+themselves (which is very easy if they set Mask to their name), but this 
+cannot be relied upon to be enough.
+
+So you should give yourself the privilage level high enough to kill any 
+message (100 by default) so that you can then kill unnecessary messages 
+yourself.
+
+Killing messages frees up the space they used in the message text file, and 
+so will stop it getting bigger, but it won't make it smaller.
+
+The space taken up by the message headers in the message index file will, 
+however, not be released until you renumber the messages. This scrunches 
+all of the deleted message headers out.
+
+This will not make the file smaller, but will stop it growing until the 
+message numbers reach the point at which they where before you renumbered.
+
+
+
+In addition to these three required files there are a number of optional 
+files, though they are not required it is a good idea to use them as they 
+help to give your BBS character.
+
+
+Logo, Bulletin and Editorial
+----  -------- --- ---------
+The system logo will probably stay constant once you have determined what 
+you are going to use as your logo, but be sure to keep any system 
+information you put in the logo up-to-date as your users will tend to 
+consider this as a source of information.
+
+If you use a bulletin it can be used to provide general information of 
+interest to your users. (see also the section on Multiple-Bulletins)
+
+You can use the editorial to spell out any points of interest concerning 
+your BBS.
+
+All these files should be in normal ASCII; with no high bits set, use a 
+normal editor to generate these files.
+
+
+Help files
+---- -----
+There are a number of help files, called HELP?.BBS, located on a drive 
+specified by SYSOPT.BBS. An example is given in the release files, but you 
+may wish to change it to suit the needs of your users and the privilage 
+level system you chose to use.
+
+
+
+
+Backing up files
+------- -- -----
+To protect against accidental loss of data, because of a disk crash or some 
+system bug damaging the message base, you will want to do regular backups 
+of the user and message files.
+
+The files you need to backup are AREAS.BBS, MSGINXnn.BBS, MSGTXTnn.BBS and 
+USERLIST.BBS. You should, of course, also have backups of the main system 
+files BBS.COM, BBS.000 and BBS.001.
+
+It is very important to keep regular backups of your data files; following 
+a disk crash you may have to fall back to the previous backup.
+
+
+
+Physical Disk Maintenance
+-------- ---- -----------
+Because of the way CP/M handles disk errors it is very important that they 
+never occur while Daisy is being used.
+
+Because CP/M errors wait for input from the local console Daisy will, from 
+the users point of view, freeze if a disk error ever occurs.
+
+So make sure that the floppy disks you use for your Daisy files are of a 
+good quality, and are clean and not worn out. If you have any problems with 
+them copy the files to a new disk and use that instead.
+
+
+
+
+
+
+
+Raymond Lowe.
+

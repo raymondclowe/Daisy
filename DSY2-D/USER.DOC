@@ -1,0 +1,380 @@
+===========================================================================
+Daisy Version 2             User's documentation               January 1988
+---------------------------------------------------------------------------
+
+
+This manual
+-----------
+
+This is the user's manual for the Daisy Bulletin Board System Version 2.
+
+
+System capabilities
+------ ------------
+
+   o Provide name/password protected access to the system.
+
+   o Powerful message reading commands such as Find, Mail search, "=" dump, 
+     Brief mode, Text and Mask.
+
+   o Record the number of times user has called.
+
+   o Go Outside to an external program.
+
+   o Help "?" files from difficult parts of the system.
+
+   o Use Terminal types, Soroc, ANSI, VT-100 and DataMedia, to provide neat 
+     paged message and other text displays.
+
+   o Multiple bulletins in addition to the main bulletin.
+
+ * o Multiple message areas.
+
+ * o Date/time and real time clock support.
+
+Features marked with "*" are new in this version.
+
+
+
+Features
+--------
+
+Daisy is designed to behave in a similar fashion to the popular Fido(tm) 
+program written by Tom Jennings. Many of the features, commands and the 
+general structure are the same. In addition some commands resembling those 
+of other BBS, such as Opus and RBBS, are available.
+
+If you are familiar with Fido(tm) BBS system you should have no difficulty 
+using Daisy. 
+
+
+Differences between Daisy and Fido(tm)
+----------- ------- ----- --- --------
+
+The biggest difference between Daisy and Fido(tm) is that Daisy has no 
+file capability, only messages. 
+
+The basic message area commands are the same, but with some additional 
+commands. 
+
+
+Communication parameters
+------------- ----------
+Daisy accepts calls at 8 data bits, no parity and 1 stop bit for 1200 baud 
+connect, or 7 data bits, even parity and 1 stop bit for 300 baud. Daisy 
+will also accept 8N1 at 300 baud.
+
+
+Once connected pressing <return> or <space> a few times  will activate 
+Daisy.
+
+
+Once you have given your name and password, selecting a password if this is 
+your first time on, Daisy will display the main system bulletin, or 
+multiple bulletin, then place you at Daisy's Main Menu.
+
+
+
+Main Menu
+---- ----
+
+From the main menu you can select a number of different options, these are 
+C)hange, U)ser list, V)ersion, M)essages, B)ulletin, E)ditorial, Y)ell, 
+O)utside and G)oodbye.
+
+
+Change
+------
+Change your name, password, ect.
+(see section below)
+
+Messages
+--------
+Enter the message section.
+(See section below)
+
+User list
+---- ----
+Display the names and last logon date of all the people in the user list or 
+people whose name contains a specified search string. This command is also 
+available while entering messages by entering "?" at the "To: " prompt.
+
+Version
+-------
+Display the version number and Copyright statement of this Daisy.
+
+Bulletin
+--------
+View the bulletin.
+(See section on Multiple Bulletins below)
+
+Editorial
+---------
+View the editorial file.
+
+Yell
+----
+Page the System operator, any of the interrupt characters will abort the 30 
+second paging sequence.
+
+Outside
+-------
+Let you exit Daisy to run an external program.
+
+Goodbye
+-------
+Asks you if you want to disconnect, if you answer Y you will be logged off 
+the system.
+
+
+
+Change Menu
+------ ----
+Selecting C from the main menu takes you to the change menu. From here you 
+can change a number of different things. The things available are :-
+
+     P : Users password
+     L : Help Level
+     N : Number of nuls
+     W : Width of your terminal screen
+     H : Height of your terminal screen
+     T : Type of your terminal
+     M : "More?"
+     S : Single-Key mode
+
+     Q : Quit change menu
+     ? : Display help
+
+Terminal type
+-------- ----
+You can set your terminal to be one of four different types:-
+
+     Dumb      : An unintelligent terminal that doesn't support any screen 
+                 controls.
+
+     Soroc     : Soroc IQ 120/140 terminal, or simulator such as Apple 
+                 CP/M.
+
+     ANSI      : ANSI capable terminal, such as an IBM with ANSI.SYS 
+                 installed. Or a terminal with VT-100 emulation, such as 
+                 Procomm.
+
+     DataMedia : Some Apple 80col. cards, you may have to turn all 
+                 emulation in your communication software off if you 
+                 want to use this.
+
+If you specify a non-Dumb terminal then terminal control sequences will be 
+used by Daisy to provide a neat display while reading messages.
+
+
+Single-Key
+----------
+If you set this On then all single inputs may be entered without pressing 
+<Return>.
+
+
+To avoid displaying the whole Change menu status display you may use 
+stacked input lines from the main menu to alter your user parameters. For 
+example "C N 1 Q" would change your nulls to 1, and result only in the 
+message "Nulls 1".
+
+
+
+
+Multiple Bulletin
+-------- --------
+When you select B from the main menu either the bulletin will be displayed, 
+or you will be offered a choice of bulletins; the Multiple bulletin.
+
+A multiple bulletin consists of a menu from which you can select one of a 
+number of bulletins.
+
+
+
+
+
+Message section
+------- -------
+Selecting M from the main menu takes you to the message section and into 
+the area in which you were last.
+
+If this is your first time in the message area during the current logon, 
+and if there are new messages in this area, you are prompted for a mail 
+search. Once this is completed, interrupted, or if you answer N to the mail 
+search you will be dropped into the reading menu. 
+
+Unlike Fido(tm) there is no "message menu" in Daisy; instead you go 
+directly from the main menu to the message reading menu as you do in Opus. 
+
+Reading messages
+------- --------
+
+The message prompt is of the following form
+
+  >[20]"MASK"<B>, 1 - 30, # M B T or ? for help:
+  ^  ^   ^    ^       ^      ^-- Some of the available commands
+  ^  ^   ^    ^       ^
+  ^  ^   ^    ^       ^-- The highest message number
+  ^  ^   ^    ^
+  ^  ^   ^    ^-- Brief message mode active (optional) 
+  ^  ^   ^  
+  ^  ^   ^-- Mask string in use (optional)
+  ^  ^ 
+  ^  ^-- Current message number
+  ^
+  ^-- Read direction
+
+Read Direction
+---- ---------
+"<" or ">" indicating the current direction of reading, forwards or 
+backwards.
+
+"Current" message
+--------- -------
+At the beginning of the read command prompt there is a number enclosed by 
+square brackets. This is the number of the most recently read message, and 
+is the "current" message. When you first enter the message section it will 
+indicate the highest message that you have read.
+
+The K)ill message, R)eply to message and T)ext commands work on the current 
+message message.
+
+Mask string
+---- ------
+String used to define what messages are visible; only those containing the 
+mask string in their header can be read. The match is case-insensitive. 
+(See M)ask command below)
+
+Brief Mode
+----- ----
+Present when in brief message mode. (See B)rief command below)
+
+
+Prompt
+------
+The exact nature of the prompt will depend upon your help level - depending 
+upon your privilage level some of the listed options may not be available 
+to you, and some options available to you may not be listed.
+
+
+
+At the read message command prompt you may enter :-
+
+     A number to display that message number. Or, in Single-Key mode, 
+ |   enter "#" followed by the message number. 
+
+     N)ext to read the next message.
+
+     P)revious to read the previous message.
+
+ |   < or > to change the reading direction.
+
+     <CR> to read the next or previous message depending upon the last N or 
+     P used.
+
+     * to read the next message after the highest message you have read.
+
+ |   = to read all of the message before or after the current message 
+ |   (depending upon the last N or P).
+
+     E)nter will let you enter a message using the message editor.
+
+     R)eply will automatically enter a message addressed to the person whom 
+     the current message is from. The subject field is automatically filled 
+     out the same as that of the message you are replying to with the 
+     addition of a leading "Re:" to indicate that it is a reply.
+
+ |   A)rea allows you to move from one of the Daisy message areas to 
+ |   another, by entering a "?" at the prompt for the new area a list of 
+ |   available areas can be displayed. 
+ |
+ |        Each area may be marked "*" indicating that it is a FidoNet Mail 
+ |   area or "E" meaning it is an EchoMail area, in addition a "!" (should 
+ |   search) mark will appear for each area you have not been into in which 
+ |   there are new messages. 
+ |
+ |        To select a new area you need only enter enough of the selector 
+ |   of the new area to distinguish it from all others. If you enter a "!" 
+ |   then you will go to the first area which is listed as "!" in the area 
+ |   list.
+
+     K)ill may be used to erase the current message provided that the 
+ |   message is from you or to you. If you are in single-key mode then you 
+ |   are prompted to ensure that you want to kill the message. 
+
+ |   F)ind a message. Search from the highest message down for message 
+     headers containing a specified search string. "I" (for inquire) can be 
+     used to activate the Find command.
+
+     S)tats to display the highest message number, highest read message 
+     number, and the total number of messages. Then Daisy prompts for a 
+     repeated Mail search.
+
+ |   M)ask to set the mask string. Once set only those messages containing 
+ |   the mask string (case-insensitive match) will be visible, all other 
+ |   messages will be treated as though they were deleted. Setting the mask 
+ |   string to nul (by entering only a return) will return to normal mode.
+
+ |   B)rief to toggle the Brief message mode. While in brief mode only the 
+ |   headers of messages will be displayed, without the following text.
+
+ |   T)ext to display just the text of the current message. Useful while in 
+ |   brief mode.
+
+
+"|" means a command different from the Fido standard or new in this version 
+of Daisy.
+
+
+Control characters
+------- ----------
+While reading messages the control characters Ctrl-C (or Ctrl-X or Ctrl-K 
+or <Esc>) and Ctrl-S may be used to interrupt or pause the display.
+
+
+
+
+Message editor
+------- ------
+When you enter a message Daisy will automatically fill the "from" field of 
+the message header with your name, and if you are replying to a message it 
+will also fill out the "to" and "subject" fields. Otherwise you may fill 
+out these fields yourself.
+
+View user list
+---- ---- ----
+If you enter a "?" at the "To:" prompt you will have access to the view 
+user list command. This feature is useful if you want to know the exact 
+spelling of a persons name.
+
+
+Once you have entered the messages subject, you have a 73 character field 
+to describe the messages subject, you will be able to enter the messages 
+text.
+
+Having entered the text you may use the message editors commands:-
+
+
+C)ontinue :    Continue entering text.
+
+T)o :          Change the "To:" field of the message.
+
+subJ)ect :     Change the "Subj" field of the message.
+
+D)elete :      Delete a line of the message.
+
+I)nsert :      Insert a blank line.
+
+A)bort :       Abort the message.
+
+E)dit :        Edit a line of the message. 
+
+S)ave :        Save the message to disk.
+
+P)riv :        Toggle from Private to Public status.
+
+
+
+
+Raymond Lowe.
+12/1/88

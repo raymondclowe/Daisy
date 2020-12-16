@@ -1,0 +1,178 @@
+
+
+
+         DDD       AA      III     SSSSS    Y      Y     III   III
+         D  D     A  A      I     S     S    Y    Y       I     I 
+         D   D    A  A      I      SSS        Y  Y        I     I 
+         D   D    AAAA      I        SSS       YY         I     I 
+         D  D    A    A     I     S     S      YY         I     I 
+         DDD    A      A   III     SSSSS       YY        III   III
+
+
+                                 Version 2
+
+                                    by
+
+                          Raymond Lowe and Ken Lo
+                          Copyright (C) 1987,1988
+                            All Rights Reserved
+
+
+                             Daisy Version Two 
+                              Generic Manual
+
+
+===========================================================================
+Daisy Version 2                Introduction                    January 1988
+---------------------------------------------------------------------------
+
+
+This manual
+-----------
+
+This is the documentation file and manual for the Daisy Bulletin Board 
+System version 2 which originated as part of the Programming Project 2.
+
+
+Programming Projects
+----------- --------
+The Programming Projects are intended to encourage the writing of software 
+for the public domain. In particular they aim to encourage cooperation 
+between various people who are interested in programming as a hobby. We 
+write these programs for fun and the experience rather than for any profit.
+
+The programming project number two was to design a BBS system to run on an 
+Apple ][ CP/M system.
+
+
+
+Daisy
+-----
+Daisy is a powerful and flexible (not to mention large and complex) 
+Bulletin Board system, it is written in Turbo Pascal v2.
+
+
+Operating requirements
+--------- ------------
+To run the Daisy BBS you will need the following:-
+
+     An Apple ][ Computer with 64K.
+     A Z80 CP/M card.
+
+     A Super Serial Communications card.
+     An external 300/1200 baud AutoAnswer modem.
+or
+     A MicroModem II compatible internal 300 baud modem.
+
+The PP2 definition also calls for a 128K card, although this is not 
+presently required by Daisy it is highly recommended as a RAM disk for high 
+speed loading of the program overlays. In addition the more available disk 
+drives the better.
+
+Some clock cards can be supported. 
+
+
+
+
+Daisy Features and Capabilities
+----- -------- --- ------------
+
+Daisy allows an Apple system as defined above to be used as a messaging 
+system by users remote from the Apple who call up Daisy via modem links.
+
+Its features include :
+
+   o Restricted access to the system using a list of users and their 
+     passwords.
+
+ * o Up to 20 separate message areas.
+
+   o Powerful message reading commands.
+     
+   o Help files available at various points of the system.
+
+   o Intelligent terminal support for Soroc, ANSI, VT-100 and DataMedia 
+     terminals.
+
+   o Multiple bulletins in addition to a main bulletin and editorial.
+
+   o Local sessions of the BBS from the local console.
+
+   o Sysop Spy mode and Yell features. 
+
+   o Built-in user list editor.
+
+   o A Sysop created system option command file to control BBS features.
+  
+   o Remote on-line sysop maintenance menu, available to high level users.
+
+   o A built-in terminal mode called from the local sysop menu.
+
+ * o Multiple external "Events".
+
+ * o Date/time support, including Real time Clocks.
+
+Those features marked thus "*" are new in version 2 of Daisy.
+
+
+
+Authors
+-------
+Daisy was written in a collaborative effort by Raymond Lowe and Ken Lo. 
+
+
+Acknowledgement
+---------------
+The authors would like to thank the many people who have provided help and 
+ideas for Daisy. In particular we wish to thank Simmons Kwan who started 
+the first 24hour Daisy BBS and who contributed his considerable programming 
+skill to our efforts.
+
+
+
+Reports
+-------
+If you find any problems with Daisy, particularly anything that could be 
+described as a "bug" please inform the authors by addressing a message to 
+us on Dial-A-Net (FidoNet/Matrix 3:700/4), Daisy-Information-Gateway (DIG) 
+or any Hong Kong BBS on which you see our names.
+
+If you do get a Daisy system working we would also like to know, to judge 
+how easy (or hard) it is to get the system working. Many thanks for any 
+feedback you can give us.
+
+Any questions, comments, suggestions, or commercial inquiries are welcomed 
+by the authors.
+
+
+
+Notice
+------
+Daisy version 2 and its associated documentation and utilities is the 
+copyrighted property of its authors; it is not in the public domain. Free 
+use, distribution, and modification of this program is, however, permitted 
+- and encouraged - subject to the following conditions:
+
+(1)  Any such use or distribution must be for non-profit purposes only.
+(2)  The authors' copyright notice may not be altered or removed.
+(3)  Modifications to this program or its documentation files may 
+     not be distributed without notification of, and approval by, 
+     the authors.
+
+No fee is requested or expected for the use and distribution of this 
+program subject to the above conditions. The authors reserves the right to 
+modify these conditions for any future revisions of this program.
+
+
+
+This Manual
+---- ------
+This manual is divided into four parts :-
+     Introduction ........ The section you are reading now.
+     Installation ........ How to set up Daisy.
+     Sysop ............... The sysop's manual.
+     User ................ The user's manual.
+
+
+Raymond Lowe.
+12/1/88

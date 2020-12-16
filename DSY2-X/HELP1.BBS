@@ -1,0 +1,51 @@
+E)nter, R)eply, N)ext, P)revious, K)ill, Q)uit, S)tats, F)ind, M)ask, T)ext
+H)url, B)rief, *)highest, =)dump, <, > or ? for help. 
+<Not all of these commands may be available to you on any system>
+
+@M More help
+If you have single key set ON then the Apple <- and -> keys work as N and P.
+
+@P020S
+   E Enter message
+@P020S
+   R Reply to a message
+   N Next message
+   P Previous message
+@P030S
+   K Kill a message
+   Q Quite message read section
+   S Mail search
+   F Find
+   M Set mask string
+@P080S
+   H Hurl message to another area
+   T Repeat Text of message
+   B Toggle Brief message mode
+   * Read highest un-read message
+   = Dump messages
+   < Change read direction to backwards
+   > Change read direction to forwards
+or ? for help
+
+@M There is more, detailed, help available - do you wish to read it
+          Mask string
+If you set a Mask string then only those messages containing that string
+in their headers will be readable, all others will be treated as deleted
+until you set the mask string to nul.
+
+          Repeat Text
+Show just the text of the current message, without the header.
+
+          Brief mode
+While brief mode is active only the header of messages will be shown,
+once you locate a message header you can read its text with the T)ext
+command.
+@P080
+
+High level users (level 80 or higher) may use the H)url command to 
+copy messages from the current area to any other area.
+@P100
+
+Users with level 100 privilage may kill any message, even if it is
+not to or from him.
+

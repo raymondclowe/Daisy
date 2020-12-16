@@ -1,0 +1,164 @@
+===========================================================================
+Daisy version 2                Installation                    January 1988
+---------------------------------------------------------------------------
+
+
+This manual
+-----------
+
+     This manual describes how to install Daisy v2 given only the basic 
+release files. 
+
+     If you are setting up Daisy for the first time you will have to read 
+the hardware and software installation sections. But if you are just 
+upgrading from v1e or v1f (which are file compatible with each other) you 
+can skip ahead to the Upgrade Installation section.
+
+     If you are using a previous v1 first upgrade to at least v1e.
+
+
+READ.ME
+-------
+Don't forget to read any READ.ME file with the release files - this will 
+contain the latest information on the current version.
+
+
+(Note, this manual refers only to installation of the SSC/External modem 
+version of Daisy)
+
+Hardware Installation
+-------- ------------
+
+     First of all you must have your hardware set up correctly, a 
+configuration slightly different from that which you use for communication 
+with BBS will be required.  
+
+     It is presumed that you will have your SSC installed in slot #2 of 
+your apple, as this is the correct position for using it as the PUN:/RDR: 
+device of Apple CP/M. You must have your SSC set for communications mode, 
+not only the DIP switches, but also the jumper block.
+
+     Daisy will set your modem to AutoAnswer when it first starts up so you 
+need not set this with DIP switches.
+
+     For Daisy to recognize the caller the modem must send the Data Carrier 
+Detect (DCD) signal to the SSC. As the SSC does not accept characters from 
+the modem when Data Carrier Detect is false you may have had your modem or 
+cable set to continually provide a carrier detect signal regardless of the 
+true carrier state. If this is the case then you must remember to change 
+your settings so that the correct carrier detect signal is received by the 
+SSC.
+
+     If you have problems try running the supplied program HARDWARE.COM, 
+this performs tests on your SSC and modem. It detects, and suggests 
+remedies for, most configuration faults.
+
+
+Software Installation
+-------- ------------
+
+     The simplest arrangement will be to put the COM and overlay files, 
+BBS.COM, BBS.000 and BBS.001, onto any blank floppy. Insert the disk in 
+drive A: and start it by entering BBS at the console. 
+
+     A>BBS
+
+     When run Daisy will automatically generate all of the message and user 
+files on the logged drive before displaying the sysop level menu. The BBS 
+will automatically go into "waiting for caller" mode at this point.
+
+     Daisy will need to use some space on the A: drive, so it should not be 
+write-protected, and it should have at least a few K spare, if you are 
+going to use Outside or Event then an extra 1 or 2K will be needed.
+
+
+     See the files SYSOP.DOC for more details on the many different 
+possibilities available in the software installation.
+
+
+HELP! Installation problems
+----- ------------ --------
+
+Symptom: Daisy is always "On-line"
+-------- -------------------------
+Cause:   Daisy is receiving a continuous DataCarrierDetect (DCD) signal.
+
+What to do: Test the state of DCD as received by the SSC, use the program 
+HARDWARE.COM, this program performs many tests, including a test on the 
+carrier signal.
+
+     If a fault with the carrier signal is reported check the following 
+points in your hardware:
+
+     Check the modem DIP switches to see that the modem does not provide a 
+     continuous carrier detect (Switch 6 on a Hayes type mode). 
+
+     Check the modem cable to ensure that pin 8 is connected.
+
+     Check that the DIP switches on your SSC are set correctly for 
+     communications mode.
+
+     Check that the jumper block on your SSC; the arrow on the block should 
+     point towards MODEM, pin 1 of the block should be in the lower left 
+     hand position. When the jumper is set correctly you should be using a 
+     normal cable (not a nul-modem cable).  
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------
+
+
+Upgrade Installation
+------- ------------
+
+     Use the instructions in this section if you have Daisy v1e or v1f 
+running, and wish to upgrade to v2.
+
+     If you are willing to just scrap your old message/user files then 
+erase those files and continue as indicated in the first time software 
+installation section.
+
+
+Upgrading files
+--------- -----
+     The user list and message base files of Daisy v1e/f need to be 
+processed before it can be used with v2, this processing is done by running 
+the supplied conversion program. Read the file V1FTOV2.DOC to see how to do 
+the conversion.
+
+File names
+---- -----
+In v1e/f the drives of the message files were specified in the system 
+option command file, in v2 however a new file called AREAS.BBS stores this 
+information.
+
+A line reading AREAS DRIVE = d, where d is any valid disk drive, needs to 
+be added to your system option command file. Then the sysop on-line system 
+menu can be used to control where the message area files should be stored.
+
+See the section in the Sysop manual about system options and the section on 
+the A)reas sub-menu of the sysop on-line menu for details.
+
+
+System files
+------ -----
+     Once the data files are upgraded you can replace the files BBS.COM, 
+BBS.000 and BBS.001 (of v1e/f) with those of v2.
+
+
+New features
+--- --------
+     If you have been running a previous version of Daisy be sure to look 
+for the many new features in the Sysop and user manual, they are marked 
+with the symbol "** New **".
+
+
+
+
+Raymond Lowe
+

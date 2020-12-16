@@ -1,0 +1,22 @@
+type nodenametype = st20;
+     phonetype = st20;
+     flagstype = set of (pep,cm,xp,re);
+     nodetype = record
+                   NetNumber,
+                   nodeNumber,
+                   routeToNet,
+                   routeTonode,
+                   baudrate:integer;
+                   name:nodenametype;
+                   phoneNumber:phonetype;
+                   KEYword:array [1..3] of char;
+                   hold:boolean;
+                   OpenTime,
+                   CloseTime: byte;
+                   flags : flagstype;
+                   fill:array [1..11] of char;
+                end;
+
+var nodelist : file of nodetype;
+    node : nodetype;
+

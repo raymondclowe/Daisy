@@ -1,0 +1,42 @@
+type date = Array [1..15] of char; { don't need a length indicator! }
+     Nametype = St36; { down from 40... important in upgrader! }
+     person = RECORD
+                 Name : Nametype;
+                 Password: St20;
+                 ConsoleWidth : Integer;
+                 consolehight : integer;
+                 consoletype : byte;
+                 nuls:byte;
+                 more : boolean;
+                 HighestReadMsg : Integer; { nolonger used for multi-area }
+                 numcalls : integer;
+                 lastcalled: date;
+                 singlekey:boolean;
+                 priv:integer;
+                 lastarea: 1..maxareas; { area he was in }
+                 highestread:array [1..maxareas] of integer;
+                 help:byte; { 0,1..3 }
+                 fill:array [1..19] of byte
+              END;
+
+const NulPerson:person =
+                 (Name : '';
+                 Password: '';
+                 ConsoleWidth : 80;
+                 consolehight : 24;
+                 consoletype : 0;
+                 nuls:0;
+                 more : true;
+HighestReadMsg : 0; { n/a v2 }
+                 numcalls : 0;
+lastcalled: '               ';
+                 singlekey: false;
+                 priv:20;
+lastarea:1;
+highestread:(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+help:3;
+fill:(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+);
+
+var userfile : file of person;
+

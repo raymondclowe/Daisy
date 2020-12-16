@@ -1,0 +1,34 @@
+mended format  is zero  or more  subfields  separated  by  commas
+consisting of  a flag  code, followed  by a  colon (:),  possibly
+followed by a value.
+
+The following codes are used to define operating hours:
+
+DA: Daily
+WK: Week days
+WE: Week ends
+SU: Sundays SA: Saturday
+MO: Mail Only
+
+The following codes define special operating conditions:
+
+RE: Node exercises some access restrictions.
+XP: Node that supports the extended protocol which    means
+    it supports file request and update request.
+
+The following  codes define  the dedicated mail periods supported
+They have the form "#nn" or !nn where nn is the GMT hour the mail
+period begins, # indicates Bell 212 compatibility and ! indicates
+incompatibility with Bell 212:
+
+
+#02: European mail hour (02:30 - 03:30 GMT)
+#09: North American mail hour (09:00 - 10:00 GMT)
+#18: Western Pacific mail hour (18:00 - 19:00 GMT)
+#CM: Accepts mail 24 hours per day
+
+When applicable, the mail period flags may be strung
+together with no intervening colons, eg.  "#02#09:"
+
+
+

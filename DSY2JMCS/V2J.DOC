@@ -1,0 +1,408 @@
+=================================================================
+V2J.DOC                Notes on Daisy v2j             06 Jun 1989
+-----------------------------------------------------------------
+
+                      Documentation update
+
+Release files
+------- -----
+
+     DSY2-X.LBR or .ARC       Extra files
+     DSY2-D.LBR or .ARC       Daisy v2 generic manual
+     DSY2-U.LBR or .ARC       Daisy v2 utilities
+
+
+                              Daisy v2j code files for :-              
+
+     DSY2JMCS.LBR or .ARC     TimeMaster clock, and SSC.
+
+     DSY2JTCS.LBR or .ARC     Time ][ clock, and SSC.
+
+
+     Daisy v2j is a minor bug fix release.
+
+
+v2i
+---
+     Some minor bug fixes.
+
+     More logical Reply to netmail messages.
+
+     Additional commands in the (not so)-dumb terminal.
+
+
+v2h
+---
+
+New things
+----------
+
+     A note is made in the log if a user drops carrier.
+
+     Screen is cleared when changing areas and before showing the 
+     welcome or bulletin display.
+
+     The  Dumb  Terminal  now supports Soroc terminal  codes  and 
+     three commands, they are <Esc>E to exit the terminal, <Esc>Z 
+     to clear the screen and <Esc>X to exit Daisy.
+
+     The "Check mail" prompt now defaults to N)o.
+
+     Daisy does a CP/M disk reset when booting.
+
+     The screen is cleared before displaying each message.
+
+     A  SYSMAXBAUD  system  option type  integer,  default  1200. 
+     Leagle  values are 300,  1200 and 2400.  300/1200/2400  baud 
+     rates  are  supported.  2400 is supported for  Netmail  with 
+     Mailer v0.26.
+
+     Various bugs fixed.
+
+-----------------------------------------------------------------
+v2g
+---
+
+What's New
+----------
+
+Quite  a large number of changes have been made in this  version, 
+let's  start  with things you don't really need to know about  to 
+use the system; features that are in the background.
+
+     Modem hangup routine more persistant to ensure hangup on all 
+     modem types.
+
+     C)hange display and msg Areas list made Ctrl-C interuptable.
+
+     Line  Idle  detector.  Daisy  will hangup  if  there  is  no 
+     responce for 4.5 minutes.
+
+     The  log file is stored in a temporary file then appended to 
+     a main file when ever the user logs off or a submit file  is 
+     activated.  A temporary file with the extension .$$$ will be 
+     seen on the same drive as the log file.
+
+     User's  name and privilage level is displayed for the  Sysop 
+     when any user logs on.
+
+
+The following are new options and commands.
+
+     Help  level  sensitive  prompt  and help  file  for  message 
+     editor, the new help file is HELP6.BBS.
+
+     A '^' meta command in SUB files makes the modem go off-hook, 
+     put a '^' (up arrow) character in an otherwise blank line of 
+     your  EVENT.?  or  *.SUB file and Daisy will take the  modem 
+     go Off-Hook before performing that EVENT or SUB file.
+
+     'Welcome' file displayed before bulletin, this is controlled 
+     by the new system option WELOME FILE NAME = <filename>.
+
+     D)ate  command from the Main Menu,  this replaces the  D)ate 
+     command of the Sysop menu.  All users may view the date, but 
+     only  those users with SET DATE PRIVILAGE LEVEL =  <integer> 
+     privilage level can change the date.
+
+     I)nquire search feature in User List Editor, while using the 
+     userlist  editor you may enter 'I' to search for a  user  by 
+     name or part of name.
+
+     Specify  areas  by  SELECTOR (name) for  S)tats  and  R)enum 
+     commands.
+
+     Read original '-' command to chain back from reply.
+
+     List from any line by entering line number in Message Editor 
+     mode.
+
+     Parallel keyboards.   When in Spy Mode you may type P or  ^P 
+     and  the local keyboard will be activated in  parallel  with 
+     the remote keyboard.  Type <Esc> or ^P to deactivate.
+
+     Lock off and No-password-required special user flags.   If a 
+     users  password is changed to 'L' then that user is  'locked 
+     off'.  If  changed to 'N' then that user is does not need to 
+     enter a password.
+
+     IFNA  Kludge  handling.   A new system  option  VIEW  KLUDGE 
+     PRIVILAGE LEVEL = <integer> determines if a user can see the 
+     IFNA Kludges.
+
+     Dual  purpose  A)nswer command.   A  'A)nswer  Questionnair' 
+     command  from the main menu is controlled by the new  system 
+     option QUESTION FILE NAME = <filename>.  If this is set to a 
+     *.SUB  file  then that SUB file is activated when  the  user 
+     selects  'A'.   A file name with any other extension will be 
+     taken as a text file and will be displayed.
+
+     New @ commands.  The new @E and @A commands are intended for 
+     use  with the 'A' command,  @Exxxx will echo the text 'xxxx' 
+     to the log file. And @Axxxx will echo 'xxxx' to the user and 
+     allow  the user to input a line,  the input will be  logged. 
+     The  @C  command  will  clear send the  users  screen  clear 
+     sequence, obviously this only works if he has an intelligent 
+     terminal.
+
+
+----------------------------------------------------------------
+v2f
+---
+
+What's New
+----------
+   
+This is mainly a bug-fix release.
+
+     
+   Bug fixes
+   ---------
+     
+     The  bug-fix made in v2e was not complete,  it has now  been 
+     completed in this version.
+
+   Changes
+   -------
+
+     Two  new area privilage levels may be set for areas with  an 
+     attribute  of 1,  this are Kill/Sent and FileAttach.  A user 
+     with  a  high enough privilage level will  be  prompted  for 
+     these flags while entering msgs into a NetMail area.
+
+
+
+----------------------------------------------------------------
+v2e
+---
+
+What's New
+----------
+   
+This is mainly a bug-fix release.
+
+     
+   Bug fixes
+   ---------
+     
+     An  error  in  the handling of the Message Text  files  that 
+     caused I/O error 91 when reading messages following a "Can't 
+     save  all of message" error,  and which could only be  fixed 
+     with the message packer, has been fixed.
+
+   Changes
+   -------
+
+     As well as the events EVENT.A to EVENT.Z Daisy will now also 
+     allow EVENT.0 to EVENT.9.
+
+     When  used with the Mailer package Daisy will check  entered 
+     addresses   against   the  nodelist.   The   system   option 
+     NODELISTDRIVE, type drive, default nul, must be set for this 
+     to function.
+
+     A new system option has been added called FILES DRIVE,  type 
+     drive, default null, for use with the external file system.
+
+
+   Previously un-documented features
+   ---------------------------------
+     Starting  in  version  2d  of Daisy  the  user  list  editor 
+     features  a  JumpFactor,  this  is  a  number  in  []  which 
+     indicates how far a left or right movement will go. Typing a 
+     number  from 1 to 9 will make the JumpFactor equal  to  that 
+     number by ten.
+
+
+----------------------------------------------------------------
+v2d
+---
+
+What's New
+----------
+   
+   Versions
+   --------
+     A version of Daisy is now available for the Time ][ clock 
+     card as well as one for the TimeMaster.
+
+     
+   Bug fixes
+   ---------
+     Full selector of To: area may be specified in Hurl.
+
+
+   Changes
+   -------
+     If you don't have a clock card then Daisy can estimate the 
+     passing of time to give a rough clock. This feature is 
+     deactivated by making the last 5 characters of the date/time 
+     string a non-valid time.
+
+     The new system option TIME ADJUST, type integer, default 
+     100, is used to adjust the estimated clock, smaller values 
+     make the clock run faster, larger values make it run slower.
+
+     When a user has a intelligent terminal set on the Change 
+     menu then when that user is in the message area the area 
+     selector will be displayed in the top righthand corner of 
+     the screen as a reminder.
+
+     Input buffering is provided for local users as well as 
+     remote users, up to 255 characters may be buffered.
+
+     The new system option SCHEDULAR, type boolean, default 
+     FALSE, causes Daisy to be compatible with a time controlled 
+     schedular. The schedular is activated via EVENT.D which is 
+     reserved for it's use when SCHEDULAR = TRUE. See the 
+     documentation on schedular for more details of the schedular 
+     conventions.
+
+     The new system option FILER PRIVILAGE LEVEL, type integer, 
+     default nul, is to allow compatability with external file 
+     handling systems. When this system option is set a new 
+     option, 'F' will appear on the main menu, when selected this 
+     will automatically activate EVENT.C which is reserved for 
+     it's use when a filer is used.
+
+     If the flag "/R" is placed on the command line when calling 
+     BBS (e.g. 'C>BBS SYSOPT.BBS     /R') Daisy will boot in 
+     returning mode, this is for use after an Event, Outside or 
+     Filer. Note that there must be at least 15 characters 
+     between "BBS" and "/R" on the command line, use spaces if 
+     required. In returning mode no Daisy logo is shown (only the 
+     message 'Returning to Daisy' is shown), if the Data Carrier 
+     Detect is true, indicating that a user is still on-line 
+     after an O)utside or F)ile section command, then the modem 
+     is not reset, Daisy will attempt to read the name and 
+     baudrate of the user from the LASTUSER.BBS file, if no such 
+     file is present it will require a normal logon, otherwise 
+     baud rate matching, system logo, and name input are skipped. 
+     Only password entry is required to return to the main menu.
+
+     The new system option FIDO WAIT, type integer, default 0, is 
+     to facilitate receiving continuous mail from Fido<tm> when 
+     Daisy is used with the MAILER package.
+
+     Events A and B are reserved for automatic use by Daisy if it 
+     is being used with MAILER. 
+
+     Daisy no longer generates multiple log files, instead at 
+     each boot the previous log file is read in and append to. 
+     This requires enough space on disk to hold the log twise.
+
+     The T)ype command will not type an open file, the log file, 
+     nor any file that is not a text file.
+
+     A new system option LOG ACTIVITY, type boolean, default 
+     false, is a new level of logging, it logs various activity 
+     of the system including users entering message areas, 
+     entering sysop menu. And events being activated.
+
+
+
+
+----------------------------------------------------------------
+v2c
+---
+
+What's New
+----------
+   
+   Bug fixes
+   ---------
+   Pagination counter is reset after entering name and password.
+
+   The  error  associated with saving messages  is  detected  and 
+   handled.
+
+
+   Changes
+   -------
+   The name of an event being activated is displayed.
+
+   At  300 baud the data format expected by Daisy is 8 data bits, 
+   1 stop bit, no parity.
+
+   Free text blocks are expressed as a percentage of total blocks 
+   in the stats command.
+
+   The  Hurl  command takes the NAME (selector)  of  the  message 
+   area, not the number.
+
+
+----------------------------------------------------------------
+v2b
+---
+
+What's New
+----------
+   
+   Bug fixes
+   ---------
+
+   The maximum length of MSGTXTnn.BBS files is 120K.  The  figure 
+   of 250K used in v2a is incorrect and would cause corruption.
+
+   The  user number in the User List Editor now handles  3  digit 
+   user numbers correctly.
+
+   It  is  now  possible to enter a terminal width of up  to  127 
+   characters as the prompt indicates.
+
+   Leading  and trailing spaces are striped when an  user  enters 
+   their name.
+
+
+   Changes
+   -------
+
+   If RAM DRIVE is set a temporary file "TEMPUSER.$$$" is used to 
+   speed up access to the userlist file when a user logs on.  You 
+   do  NOT need to save this file,  Daisy will generate it  every 
+   time it is run.
+
+   The   T)ype command will no longer be confused by the  garbage 
+   beyond the EOF mark in a short text file
+
+   More prompts are now sensitive to the user's Help Level.
+
+
+
+----------------------------------------------------------------
+v2a
+---
+
+What's New
+----------
+   
+   Bug fixes
+   ---------
+
+   The  bug  associated  with a blank line following a  "@"  meta 
+   command in a text file has been fixed.
+
+   The delayed echo bug associated with Y)elling is fixed.
+
+
+   Changes
+   -------
+
+   The  70K text limitation on message area MSGTXT files has been 
+   lifted, the limit is now 250K.
+
+   "Spy-mode" now defaults to off when Daisy boots.
+
+   The  T)ype command will only type text files,  a text file  is 
+   defined  as any file in which at least the first 128 characters 
+   are all printable.
+
+   Files  T)yped now will show '@' meta commands  instead  of 
+   performing them.
+
+   Daisy now references AREAS.BBS less frequently.
+
+
+
+
+Raymond Lowe.

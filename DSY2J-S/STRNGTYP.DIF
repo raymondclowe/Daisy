@@ -1,0 +1,18 @@
+type St255 = String [255];
+     St128 = String [128];
+     St80  = String [80];
+     ST73  = STRING [73];
+     St50  = String [50];
+     St40  = String [40];
+     St36  = String [36];
+     St20  = String [20];
+     st15  = string [15];
+     st14  = string [14];
+     st12  = string [12];
+     St10  = String [10];
+     st6   = string [6];
+     St4   = String [4];
+     st3   = String [3];
+     st2   = String [2];
+     St1   = String [1];
+

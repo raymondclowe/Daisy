@@ -1,0 +1,88 @@
+
+Nodelist compiler for Mailer 0.37              May 20, 1989
+
+
+In order to get a NODELIST.BBS for your Daisy ,you will need the
+file NODELIST.TXT and NODELIST.CTL to do the process.
+
+Things about the nodecomp.com :
+
+  o   It support the latest IFNA nodelist format of Feb 5, 1989.
+
+  o   It will create the 'Help5.bbs' automatically when you
+      compile a nodelist. The board which has been identified to
+      be 'down' or 'pvt' will not shown in the help5.bbs file.
+
+      You can replace the ready-to-post Help5.bbs with the old
+      one directly without any modify.
+
+  o   It can now compile the IFNA standard form of nodelist, which
+      you get from any OPUS/Fido board.
+
+      It remain the function to compile the already-changed nodelist
+      for Daisy.
+
+      So it is compatible with both nodelist of OPUS or Daisy.
+
+  o   Things in the NODELIST.CTL :
+
+  Name            Explanation                            Example
+
+  Dial-default   IDD international code                 001, 002
+  Country-code   Your country code number               852 (Hong Kong)
+  Area-Code      Your area code number                  3 (Kowloon)
+  Dial-prefix    Tone/Pulse  dialing, Extra number      Tone, #95
+                 to get street line. (office)
+  This-Net       The original Net number your board     700  (Hong Kong Net)
+                 in.
+  Max-baud       The maximum baud rate that             2400
+                 your modem/board can support up to.
+  Route-to       Mail which need to route to            700/722 via 700/101
+                 other net/node.
+  Hold           Mail which you need to hold.           700/722
+  Timezone       (see below)                            +80
+  Mail-Hour      The mail hour in your currect zone.    1700-1800
+                 (see bwlog)
+
+
+
+Example of nodelist.ctl:
+
+This-Net   700
+
+Dial-default    001
+Country-code    852
+Area-code       3                 <-- Default -1 ,no area code
+Dial-prefix     Pulse, #95        <-- any format of the following :
+Timezone        +80                 |
+Mail-Hour       1700-1800           |    <Extra no.>
+Max-baud        2400                |    <Dialing type>
+                                    |    <Dialing type>,<Extra no.>
+Route-to      162/23 via 162/27     |    <Extra no.>,<Dialing type>
+                                    |
+Hold   162/31                       |  notice the comma between the
+                                    |  dialtype and extra no.
+                                    |
+                                    |  ps.  Dialing type default to Tone
+
+  o   TimeZone -   The difference between your local time and the Universal
+                   Time Standard.  eg. Hong Kong time is UTS + 08:00 hours
+
+                   We only need to take those 4 digits     + 08:00
+                   for the use in the nodelist.ctl         ^ ^^ ^
+                   So, all we need here is +80.
+
+                   If - 11:30, then we need to take -113
+                   for the TimeZone.
+
+  o   Mail-Hour -  Please note that the time is written in 24 hours format
+                   with a '-' between the starting and ending time while
+                   no colon ':' is needed.
+
+                   Mail-hour correct to the nearest 10 minutes.
+
+                   ps. Mail-hour default to 1700-1800.
+
+Any configuration problem please sent netmail to
+Sysop of Boogie Woogie (700/722)
+

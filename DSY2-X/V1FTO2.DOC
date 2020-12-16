@@ -1,0 +1,44 @@
+===========================================================================
+Version 1e to v2 Daisy file conversion utility                 January 1988
+---------------------------------------------------------------------------
+
+
+Introduction
+------------
+
+This program will convert the USERLIST.BBS and MSGINDEX.BBS files from a 
+Daisy v1e or v1f system into a form usable by Daisy v2.
+
+
+Warning
+-------
+Always work only on backed-up files - these upgrade processes may easily 
+lead to accidental corruption of your message files. So BACKUP EVERYTHING 
+*before* starting!
+
+
+File Usage
+---- -----
+You may rename your files as convenient while upgrading provided you rename 
+them to the correct names when finished.
+
+The userlist should be named USERLIST.BBS, the message index file should be 
+named MSGINX1.BBS (previously MSGINDEX.BBS) and the message text file 
+should be manually renamed to MSGTXT1.BBS (previously MSGTEXT.BBS).
+
+
+How to use this program
+--- -- --- ---- -------
+The program will prompt you to select the message index file or the 
+userlist upgrade process, chose the one you wish to perform.
+
+It will then ask you for the drive, name and extention of the old file, 
+then of the new file. Once both files have been opened data will be copied 
+from the old file into the new.
+
+
+
+
+
+Raymond Lowe
+

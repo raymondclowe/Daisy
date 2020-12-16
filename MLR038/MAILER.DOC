@@ -1,0 +1,381 @@
+=================================================================
+MAILER.DOC                   MAILER (0.36)          14th May 1989
+Draft 2
+                 A FidoNet Mail system for Daisy (2i)
+-----------------------------------------------------------------
+
+
+Introduction
+============
+
+Thå Maileò ió á FidoNeô compatiblå electroniã maiì systeí foò uså 
+with the Daisy Bulletin Board System.  
+
+Thió  manuaì  presumeó á completå understandinç oæ  Daisy¬  CP/M¬ 
+FidoNet¬   Netmail¬   Echomail¬   nodelistó  anä  alì  associateä 
+subjects.
+
+Iô  startó witè á cook-booë typå seô oæ instructionó foò  settinç 
+uğ  á  basiã Maileò system¬  followeä bù noteó oî  morå  advanceä 
+features.
+
+
+Requirements
+============
+
+Tï  uså thå Maileò yoõ musô havå the following;
+
+  ª  Á fullù operationaì Daisù BBS¬  v2ç oò  above¬  SSC/externaì           
+     modeí  typå only®   Seå Daisy'ó owî  documentó foò whaô  yoõ      
+     neeä tï ruî it.
+
+  ª  Á RamDisk/SiliconDisë witè aô leasô 50Ë sparå capacity.
+
+Recommendeä  ió  á Ramdisë oæ 128Ë oò morå anä ³ oò  morå  floppù 
+disë drives®  
+
+
+Basiã installation
+==================
+
+Maileò ió á Turbï Pascaì .CHÎ file¬ iô ió activateä bù callinç iô 
+froí Daisù usinç thå CHAIÎ metá commanä iî aî evenô file.
+
+Firsô  changå yoõ automatiã systeí startinç batcè filå sï thaô iô 
+putó  thå fileó MAILER.ª ontï thå Ramdisk®   Iô ió  advisablå  tï 
+alsï  puô NODELIST.BBS¬  whicè we'lì comå tï iî á moment¬  oî thå 
+ramdisk.
+
+Tï  makå Daisù activatå thå Maileò automatically¬  aó welì aó  tï 
+seô  thå  NetMaiì messagå areá anä sï on¬  yoõ neeä tï  adä  somå 
+settingó tï youò Daisù systeí optioî filå SYSOPT.BBS.
+
+Adä theså lines
+
+MAILEÒ ½ TRUÅ            »  Yeó thió systeí useó MailerŠNEÔ    ½ <Integer¾       »  Youò Neô number
+NODÅ   ½ <Integer¾       »  Youò Nodå number
+NODELISÔ DRIVÅ ½ <DriveLetter¾ » drivå witè NODELIST.BBÓ oî it
+VIE× KLUDGÅ PRIVILAGÅ LEVEÌ ½ <Integer¾ »  Youò sysoğ priö level
+
+Iæ yoõ don'ô alreadù havå iô yoõ musô seô an
+
+EVENÔ DRIVÅ ½ <driveletter>
+
+Tï uså thå Maileò yoõ neeä tï havå aô leasô onå messagå areá thaô 
+ió  á  NetMaiì area®   Thió ió thå areá iî whicè yoõ  wilì  enteò 
+messageó tï bå senô tï otheò FidoNeô nodeó anä iî whicè  messageó 
+froí otheò nodeó wilì bå saved.
+
+Gï intï Daisù anä froí thå Sysoğ menõ (*© selecô Areaó (A)¬ firsô 
+Adä (A© aî areá theî Ediô (E© it.
+
+Seô  thå  selectoò tï NET¬  NETMAIL¬  MAIL¬  MATRIØ oò  somethinç 
+similar¬ anä thå namå tï "FidoNeô Maiì area¢ oò similar®  Seô thå 
+otheò optionó aó witè otheò areaó buô seô thå areá ATTRIBUTÅ tï ± 
+(one).
+
+Iô  ió thió attributå thaô wilì makå thå areá differenô froí  thå 
+others.
+
+Daisù  wilì asë yoõ tï seô á fe÷ extrá privilagå leveló foò  thió 
+areá  becauså iô ió á Maiì area®   Seô theí alì tï sysoğ leveì tï 
+begiî  with¬  oncå yoõ understanä theiò functioî yoõ maù wisè  tï 
+reduce the required privilage level needed to use them.
+
+Now go to the message area, do an
+
+  A ?
+
+tï  seå  thå  areaó anä yoõ shoulä seå thå ne÷ areá  witè  á  '*§ 
+betweeî thå selectoò anä name®  Yoõ caî uså 'Á *§ tï quicklù movå 
+to that area.
+
+Wheî  yoõ enteò á messagå iî thió areá yoõ wilì bå  prompteä  foò 
+thå  NET/NODÅ addresó oæ thå nodå tï whicè yoõ wisè thió  messagå 
+to be delivered.
+
+Thå  helğ  aô thió prompô ió HELP5.BBS¬  thió filå  ió  generateä 
+automaticallù  bù  thå  NODECOMĞ  nodelisô  compiler®    Seå  thå 
+documentatioî oæ thaô prograí foò details.
+
+Iæ youò privilagå leveì ió higè enougè yoõ wilì alsï bå  prompteä 
+foò 'Kilì afteò sending§ anä 'filå attach'®  
+
+
+Events
+
+No÷  thaô thå MAILEÒ ½ TRUÅ linå ió iî youò SYSOPT.BBÓ Daisù wilì 
+trù tï uså thå evenô fileó EVENT.Á anä EVENT.Â automatically¬  sï 
+iô ió no÷ timå tï creatå those.Š
+Presuminç thaô thå ramdrivå ió Dº  thå fileó wilì looë  somethinç 
+likå this;
+
+     EVENT.A
+---------------------------------------------  
+ü CHAIÎ D:mailer.chî #ò /wdÄ /ndÄ » receivå |
+ü bbó sysopt.bbó                            |
+---------------------------------------------
+    
+
+     EVENT.B
+--------------------------------------------------
+| CHAIN D:mailer.chn #c /wdD /ndD /ww500 ; crash |
+| bbs sysopt.bbs                                 |
+--------------------------------------------------
+
+   Notå thå 'D's¬  theså arå referenceó tï drivå Dº  whicè ió thå 
+   /WorkDrivå anä thå /NodelistDrive.
+    -   -              -       -
+
+Daisù  caî  automaticallù  activatå theså eventó  iæ  thå  MAILEÒ 
+systeí optioî ió seô true.
+
+Iæ á FidoNeô maiì calì ió detecteä bù Daisù iô wilì starô EVENT.Á 
+tï receivå thaô call®  Reaä thå evenô filå as:
+
+     CHAIÎ thå MAILEÒ oî drivå D:¬ dï á #RECEIVÅ event¬ WorkDrivå 
+     ió  D¬  NodelistDrivå ió D®  Theî ruî thå BBÓ  again¬  usinç 
+     optionó iî SYSOPT.BBS.
+
+Iæ á useò enteró á messagå intï thå NetMaiì areá theî EVENT.Â  ió 
+performeä  afteò  thå  useò  logó ofæ tï  procesó  anä  senä  thå 
+message®  Reaä as:
+
+     CHAIÎ  thå  MAILEÒ  oî drivå D:¬  dï  á  #CRASÈ  ouô  event¬ 
+     WorkDrivå  ió D¬  NodelistDrivå ió D¬  WindowWidtè (lentè oæ 
+     timå  tï  keeğ trying¬  ió 50° seconds)®  Theî ruî  thå  BBÓ 
+     again¬ usinç optionó ió SYSOPT.BBS
+
+
+Nodelist
+--------
+Beforå  yoõ  caî senä maiì yoõ neeä tï havå á compileä  nodelist¬ 
+NODELIST.BBS¬   seå  thå  documentó  foò  thå  nodelisô  compileò 
+NODECOMP.COÍ foò details.
+
+
+Interactive
+-----------
+Witè maileò eventó thaô perforí á pacë functioî yoõ geô á  chancå 
+tï  overidå  thå  defaulô routing®   Responä Y)eó tï  thå  prompô 
+"Interactive?¢  anä  iô wilì asë wherå tï routå messagå  iî  eacè 
+area it packs.
+ŠEnterinç 0/° causeó default¬  nodelisô specified¬  routinç tï  bå 
+used.  
+
+
+Keyboard controls
+-----------------
+Pressinç  thå spacå baò whilå thå maileò ió actuallù  runninç  iî 
+maiì mode¬ noô wheî iô ió packing/unpacking¬ wilì givå yoõ á lisô 
+of possible commands.
+
+While dialing <Esc> will abort.
+
+Whilå noô dialinç (yoõ havå tï geô iî therå fasô iî á Crasè evenô 
+aó  therå ió almosô nï pauså iî dialing© <Esc¾ exitó thå  mailer¬ 
+#) goes to crash mode, W) reverses it to go to window mode.
+ 
+C)alì  forceó aî outgoinç calls¬  thió onlù haó meaninç iî Windo÷ 
+mode.
+
+P)olì  generateó aî emptù packeô addresseä tï á  specifieä  node®  
+Thió  packeô  ió  noô likå thå polì packetó generateä bù  thå  #Ç 
+eventó - thoså arå ignoreä afterwardó iæ thå polì failed®   Thoså 
+packets generated by P)oll are kept.
+
+
+
+
+Advanceä features
+=================
+
+
+Arcmail
+-------
+Thå Maileò supportó thå reception¬ buô noô generation¬ oæ ARCmaiì 
+usinç thå CP/Í UNARC.COÍ utilitù froí Roberô Freedman®   Yoõ MUSÔ 
+uså  á versioî thaô ió patcheä oò compileä tï dï á warí  booô  oî 
+exiô otherwiså iô wilì noô worë witè Mailer.
+
+Thió  Arcmaiì supporô ió necessarilù VERÙ dicey¬  becauså oæ  thå 
+limitationó iî UNARC.COM-CP/M-TurboPascal-me¬ É makå NÏ guarnteeó 
+abouô it® "Iæ iô breakó yoõ owî botè halves."
+
+
+Echomail
+--------
+
+Echomaiì TOSÓ ió builô intï thå Mailer» anù messagå receiveä thaô 
+haó aî AREAº  statemenô witè aî areá keù thå samå aó thå selectoò 
+oæ aî areá wilì bå saveä intï thaô are.
+
+Therå ió nï separatå controì filå foò TOSÓ - iô jusô lookó aô thå 
+areá selectoró oæ messagå areaó aó defineä iî Daisy.
+
+Thió  Maileò  supportó á mini-versioî oæ EchoMaiì  SCAN®   Iô  ió 
+limiteä  iî  thaô iô caî ONLÙ bå á terminaì poinô oî  á  network¬  Šthaô ió iô caî onlù forwarä it'ó owî maiì tï á singlå  node¬  anä 
+iô cannoô forwarä maiì froí otheò nodes.
+ 
+Example
+            ConfMail     QBBS
+                1/1-----1/2
+                 | \   / |
+                 |  \ /  |
+                 |  / \  |  
+                 | /   \ |     Daisy MAILER
+                1/3-----1/4-----1/5
+           EchoMail    Opus    
+
+Sï iî thió echï topologù ONLÙ 1/µ maù bå á Daisù MAILEÒ  Echomaiì 
+system.
+
+Tï  starô aî echomaiì areá givå iô aî attributå oæ ² anä  specifù 
+the net and node to forward to (in the above example 1/4).
+
+Normallù  Maileò onlù scanó thå netmaiì areá foò ne÷ messageó  tï 
+bå senô out¬ tï makå iô scaî echï areaó aó welì uså thå flaç /ESÙ 
+oî  thå  Maileò commanä line®   Thió woulä normallù  bå  useä  iî 
+youò EVENT.B.
+
+Origin lines
+
+Puô á filå calleä ORIGIN.x¬ wherå ø ió thå numbeò oæ thå echomaiì 
+area¬  oî thå loggeä drivå witè á onå linå 'origin§ statemenô (dï 
+noô  includå thå strinç § ª Origin:')®   Oò yoõ caî havå á singlå 
+filå ORIGIN.BBÓ thaô wilì bå useä foò alì echï areas¬  thió  filå 
+wilì  alsï  bå  thå defaulô foò anù areá foò whicè  therå  ió  nï 
+specifiã ORIGIN.ø file.
+
+Window events
+-------------
+
+Iæ  á  Maileò calì doeó á #× thió startó á 'Normaì  window§  typå 
+event®   Thió  kinä  oæ evenô waitó betweeî  attemptinç  outgoinç 
+calls giving a chance for incoming calls to be received.
+
+Botè incominç maiì anä humaî calló wilì bå accepted®  Humaî calló 
+will be recongised and cause mailer to exit back to the BBS.
+
+
+
+
+
+
+
+Mailer is controlled by calling it as an EVENT from Daisy v2g.
+
+A series of codes may be passed to the mailer.
+
+/CF<num>       Read configuration number <num>
+/BS<num/num¾   Bosó <num/num¾ (oò polì <num/num>© (defaulô 0/0)Š/FW<Y|N>       Do Full Window length (default no)
+/IF<Y|N>       Ignore incoming files (default no)
+/WW<num>       Window Width, length in seconds (default 3600)
+/WD<drive>     Work Drive (default current drive)
+/ND<drive>     Nodelist Drive (Defaults to Daisy NODELISTDRIVE=)
+/ET<Y|N>       Echomail Toss (default yes)
+/ES<Y|N>       Echomail Scan (default no)
+/WC<num>       Wait for Carrier (default 45 seconds)
+
+#<PrimaryEventCode>{<SecondaryEventCode>} Default W.
+
+Event Codes
+         C      Crash mail
+         H      Hold mail
+         W      Window mail
+         P      Poll (send no mail)
+         R      Receive (go direct to receive packet state)
+
+Thå Secondarù Evenô Typå fielä ió mainlù sï thaô á Crasè oò Pacë 
+caî bå performeä afteò á Receivå maiì haó beeî performed®  Thió 
+ió oæ primarù importancå tï HOSTó anä HUBó whï neeä tï pasó oî 
+mail.
+
+
+
+Aô  leasô EVENT.Á musô bå presenô tï uså thå mailer¬  iô wilì  bå 
+executed when Daisy receives a mail call.
+
+Example
+CHAIN D:MAILER.CHN #rc /wdD /ndD /ww100 /fwN /ifN /wc15 ;RECEIVE-crash
+ ^    ^  ^         ^^^    ^    ^  ^      ^    ^   ^     ^
+ |    |  |         |||    |    |  |      |    |   |     |
+ |    |  |         |||    |    |  |      |    |   |     Comment
+ |    |  |         |||    |    |  |      |    |   | 
+ |    |  |         |||    |    |  |      |    |   Wait 15 for 
+ |    |  |         |||    |    |  |      |    |   carrier
+ |    |  |         |||    |    |  |      |    |
+ |    |  |         |||    |    |  |      |    Ignore files (No)
+ |    |  |         |||    |    |  |      Full window (no)
+ |    |  |         |||    |    |  Window Width 
+ |    |  |         |||    |    Nodelist Drive
+ |    |  |         |||    Work Drive
+ ü    ü  ü         üüSecondary (crash)
+ ü    ü  ü         üPrimaray (receive)
+ ü    ü  ü         Events
+ ü    ü  Name of mailer file
+ ü    Drive of mailer file
+ Daisy CHAIN command (MUST be uppercase)
+
+
+EVENT.Â  wilì bå calleä afteò á useò haó entereä á  messagå  intï 
+the mail area or an echo area.
+
+Example
+     CHAIN D:MAILER.CHN #c /wdd /ndd /ww500 ;  CRASH out mailŠ
+     (Alternately you could have a P)ack event here so that mail
+      is just packed up ready to be picked up)
+
+An additional event may be set up to do mail polls.
+
+Example
+     CHAIN D:MAILER.CHN #G /BS164/319 /wdD /ndD /ww200 ;GET 
+
+
+
+Maileò  caî  dï  Filå Attacè send¬  onå filå peò messagå  anä  nï 
+wildcardó (*,?)®  
+
+MLR015.LBR
+----------
+
+No÷  checkó thaô therå ió enougè spacå beforå acceptinç  incominç 
+files®   Iô wilì hanguğ oî thå calleò iæ therå ió noô enougè disë 
+spacå foò á file.
+
+Perameteò  'IgnoreFiles§  ió incaså yoõ don'ô havå mucè spacå  tï 
+accepô  fileattaches®   Iæ  thió ió seô tï '1§ theî  Maileò  wilì 
+PRETENÄ tï accepô thå incominç files¬  buô iô won'ô savå theí  tï 
+disk®  Onlù thå nameó anä aî emptù filå wilì bå saved.
+
+
+
+MLR026.ARC
+----------
+Yoõ  maù puô á MAX-BAUÄ statemenô iî thå ROUTE.TXÔ file¬  defaulô 
+is 1200 but you may set "MAX-BAUD 2400".
+
+300/1200/2400 baud is supported.
+
+
+MLR027.ARC
+----------
+Yoõ musô havå SYÓ MAØ BAUÄ iî thå SYSOPT.BBÓ seô tï 2400¬ ANÄ thå 
+MAX-BAUÄ statemenô iî thå ROUTE.CTÌ seô tï 2400.
+
+Á  ne÷ option¬  /WC¬  allowó yoõ tï changå thå timå  Maileò  wilì 
+spenä  waitinç  foò  á carrieò signaì wheî iô makeó  aî  outgoinç 
+call®   Bù shorteninç thió yoõ caî geô morå calló intï á  shorteò 
+perioä oæ time®   Don'ô makå iô toï shorô oò somå calls¬  sucè aó 
+distancå ones¬ wilì noô havå timå tï connect.
+
+Wheî worlä C· ió completeä wå caî alì seô thió tï abouô /WC5 !
+
+
+
+MLR036.ARC
+==========
+Ah¬ arcmaiì ió no÷ accepteä foò noî *.MO¿ typå packets®  
+Š
+Fidï anä FidoNeô arå registereä Tradå Markó oæ Toí Jennings.
+

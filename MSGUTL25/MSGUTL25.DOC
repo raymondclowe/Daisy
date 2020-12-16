@@ -1,0 +1,49 @@
+=================================================================
+v2.5                     Message Utility                 2 Jan 89
+-----------------------------------------------------------------
+
+
+Introduction
+------------
+
+The  message utility allows the Sysop to perform bulk erasure  of 
+messages and to compact message files.
+
+It   supports   a   script  feature  allowing   it   to   operate 
+automatically.
+
+This  new  version has a new option in the  'Pack  Message  Area' 
+command  which  allows the sysop to specify the number of  latest 
+messages  to be retained.  In case the number is larger than  the 
+number of messages in the area, all messages are retained.
+
+Usage
+-----
+MSGUTIL  MUST be called using the CHAIN command from a Daisy BBS, 
+an optional script filename may be passed.
+
+1)   CHAIN MSGUTIL.CHN 
+
+2)   CHAIN MSGUTIL.CHN script.txt
+
+In  form 1 the utility will be activated and you may  select  the 
+menu options to perform the various commands.
+
+If  you  use form 2 and the script file exists the  utility  will 
+take  commands from the text file script.txt.   If the file  does 
+not  exist the utility will work as for form 1 but will copy  all 
+operations into the script file.
+
+Therefore to create a script use form 2,  MSGUTIL will then be in 
+a  'learn'  mode,  and perform manually the operation you want  a 
+script for.
+
+Once  the  operation  is complete Quit the  system,  when  it  is 
+started  again  the  script file will be read and used  as  input 
+automatically performing the same operations.
+
+
+
+
+Raymond Lowe
+

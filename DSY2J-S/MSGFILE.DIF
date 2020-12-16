@@ -1,0 +1,58 @@
+{ 21/4/88 }
+ type attribtype = set of (private,crash,recd,sent,fileattached,intransit,
+                           orphan,killSent,localMSG,holdforpickup,unused,
+                           filerequest,returnreceiptrequest,IsReturnReceipt,
+                           auditrequest,fileupdatereq);
+
+type MsgHeadertype = record
+ fromPerson,
+ toPerson   : Nametype; {36, down from 40}
+ SUBJ : ST73; { up from st70 }
+ timesread: integer;
+ dateentered: date;
+ PointerTOBody : Integer;
+ replyto : integer;
+
+ attribute : attribtype;
+ cost : integer;
+ orignode : integer;
+ destnode : integer;
+ orignet : integer;
+ destnet : integer;
+ fill:array [1..20] of byte;
+end;
+
+const nulmsgheader:msgheadertype = (
+ fromperson:'';
+ toperson:'';
+ subj:'';
+ timesread:0;
+DATEENTERED:'               ';
+ pointertobody:-1;
+ replyto:0;
+
+ attribute:[];
+ cost:0;
+ orignode:0;
+ destnode:0;
+ orignet:0;
+ destnet:0;
+ fill:
+ (0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+);
+
+var Msgindex : file of MsgHeaderType;
+    MsgText  : file;
+
+const sizeofblockmap = 120; { that is bigger than is possible on a floppy! }
+      sizeofdatablock = 512; (* 4 blocks *)
+
+var fileDataBlock : array[ 1..sizeofdatablock ] of byte;
+    Blockmap      : array[ 0..sizeofblockmap ] of byte absolute fileDataBlock;
+
+var HighestMsgNum : integer; { the Number of the highest Msg, 0 when there is none }
+    strHighestMsgNum : st4; { what happens if there are more than 9999 Msgs? }
+
+    nummsgs : integer; { total number of messages excluding deleted ones }
+    strnummsgs : st4;
+
