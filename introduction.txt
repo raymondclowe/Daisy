@@ -1,0 +1,228 @@
+
+     Raymond Lowe
+     3:700/13
+
+
+                                 D A I S Y
+
+                                    THE
+
+                     Apple CP/M Bulletin Board System
+
+                                *    *    *
+
+     It seems that there have recently been quite a few queries in the
+     net about Daisy, the Apple II BBS of which I am the author, so
+     for all those interested here are some details about Daisy.
+
+
+     Daisy who?
+     ----------
+
+     A couple of years ago I was talking to my friend Ken Lo about
+     Bulletin Board Systems, and about how hard they were to write.
+     This was not a surprising topic of conversation as we are both
+     programmers, both BBS users and the conversation in question was
+     via messages on one of the local RBBS.
+
+     I thought that BBS were probably pretty hard to code, and were
+     way beyond the capabilities of the Apple ][+ which was then my
+     main computer (I've since moved up to a //e).
+
+     Ken disagreed, he thought it wouldn't be that hard to produce a
+     BBS.  So after some discussion we decided to attempt the
+     development of what we referred to at the time as an "Apple
+     Fido".
+
+     We decided to use Apple CP/M and Turbo Pascal v2 for the
+     development as these were the most advanced systems available to
+     both of us.
+
+     With Ken working on the low level serial card drivers, we found
+     it necessary to drive the UART directly using memory mapped
+     registers, and me on the high level code it wasn't long before
+     the first Daisy was running.
+
+     You can well believe that the first call I received using Daisy
+     was quite a thrill for me.  Even if a major bug did mean that
+     every character the user entered was displayed on a separate
+     line.
+
+     That, and many other bugs, were soon found and fixed - it wasn't
+     long before the very first version of Daisy was released.
+
+     Of course it was some time before anyone actually USED Daisy to
+     run a regular BBS.  But the thrill of coding and debugging kept
+     us happy as we quickly developed a whole range of features for
+     the system.
+
+     Though it started off as a deliberate backward engineering of
+     Fido Daisy soon took on a life and character of its own.  Today
+     Daisy includes many features seen in Fido, Opus and other BBS
+     together with quite a few features all of its own.
+
+     For Users
+     ---------
+
+     From the point of view of a remote user the overall look-and-feel
+     is very much that of Opus or Fido.  Most of the commands they are
+     already familiar with will work as they expect, and they can use
+     the system just fine without ever learning anything about the
+     Daisy specific features.
+
+     This only applies to users though; Sysops will find Daisy rather
+     different from what they may have seen before.  As I had never
+     seen any BBS from the Sysop side when I started writing Daisy I
+     had to design everything from scratch.
+
+     For Sysops
+     ----------
+
+     The first level of Sysop control is through a point-and-press
+     interface available all the time the system is waiting for
+     callers. This gives options such as "Start local session", "Edit
+     user list", "Event" and the "Terminal mode"; though not all are
+     available while a remote user is on-line.
+
+     During a session, be it from the local console or remotely via
+     modem, an on-line Sysop menu gives high-level users access to
+     another level of commands used to control message areas, message
+     renumber, access privilege levels, multiple bulletins and similar
+     things.
+
+     At the most detailed level all basic configuration information,
+     detailing which drives are to be used and so on, is controlled by
+     a text file which can be created using any normal text editor.
+
+     In fact all these configuration options are entirely optional, it
+     is perfectly possible to run the BBS by just entering 'BBS' at
+     the CP/M prompt and letting it run. The program automatically
+     generates any files it really needs.
+
+
+     Daisy Mailer
+     ------------
+
+     Of course if you write a program on the basis of it being an
+     "Apple Fido" pretty soon people start expecting it to be able to
+     do FidoNet mail.
+
+     Well after quite a lot of prodding I finally got around to
+     starting on a mailer for Daisy.  Working from the early Fidonet
+     Technical Standards Committee documents I built up all the code I
+     needed to automatically send message back and forth from Daisy to
+     Fido and Opus systems.
+
+     Now the Daisy Mailer is an optional extra which plugs into the
+     BBS and does all the packing, calling, transferring and unpacking
+     of messages.
+
+     It handles type two mail packets, file attaches and routing
+     perfectly.  Echomail support is built-in and in the most recent
+     versions can receive ARCmail.
+
+     As Daisy is fully NetMail aware mail calls can be accepted at any
+     time, so it qualifies for the #CM: continuous mail flag if
+     correctly configured.
+
+     Ah, but...
+     ----------
+
+     Unfortunately there is one catch if you want to use Daisy for its
+     FidoNet mail capability; the Mailer has not been tested by the
+     FTSC and hence has not been 'validated' by them as being Net
+     compatible.
+
+     This means that officially a Daisy BBS cannot be assigned a node
+     number in the nodelist.
+
+     Of course this doesn't stop you from using it as a Point system,
+     and I've used Daisy as a point without any problems, but if you
+     want a regular node number you're out of luck.
+
+     My early attempts to get the Mailer tested and validated were to
+     no avail; not because it was tested and failed those tests, but
+     rather because I could never get anyone to answer my messages
+     requesting that it be tested.
+
+     More recently, around the new year, I sent a full set of Daisy
+     and the Mailer on floppies to an Apple user in the U.S. at the
+     request of James Deibele who is apparently now responsible for
+     'foreign' mailers.
+
+     As the Apple user in question is not a CP/M user I don't expect
+     she'll get anywhere very fast (how soon do you think you'd be
+     able to get Opus running if you were not a MS-DOS user and didn't
+     even have a DOS bootable disk?)
+
+     So the Daisy Mailer may or may not be tested and validated Real
+     Soon Now.
+
+     Despite all that if you have a friendly NC, as I have, you can
+     probably get yourself hooked into the network for Echomail and
+     such.
+
+
+     Requirements
+     ------------
+
+     To run Daisy you need the following:
+
+        * An Apple ][ series computer or compatible
+        * Z80 card and CP/M software
+        * Super Serial Card or compatible serial communications
+          device.
+        * External 300/1200 or 2400 baud Hayes AT compatible modem.
+
+        * Clock cards, either Time ][ or TimeMaster, are optional.
+
+        * A  large  capacity  RAM  card configured  as  a  ramdisk  is
+          recommended for running the BBS, it is considered  essential
+          for running the Mailer.
+
+        * You'll also want as MUCH on-line disk storage as possible;
+          floppies are okay but three would be better than two.
+
+
+     Copyright
+     ---------
+     Daisy and its associated documentation and utilities are not PD,
+     they are the copyrighted property of the authors.
+
+     Free use and  distribution is, however, permitted - and
+     encouraged.  The only restrictions are 1) you mustn't sell it
+     (make money out of distributing it), 2) distribute modified
+     versions without the authors permission.
+
+
+     Getting Daisy
+     -------------
+
+     The following Daisy files can be FileRequested from Electronic
+     BBS, 3:700/18, 2400, 23 hours a day (not during NMH).
+
+
+     DSY2-D.ARC     32940 02-11-89  Documents, manuals
+     DSY2-X.ARC     35061 07-19-88  Extra files, help
+
+     DSY2HTCS.ARC   57701 11-09-88  Daisy v2H for Time II,      code
+     DSY2HMCS.ARC   57872 11-09-88  Daisy v2H for Timemaster //, ''
+
+     MSGUTL25.ARC   22793 01-03-89  Message utility v2.5 /w source
+     PACKUSR4.ARC   12326 12-28-88  Pack user list v4
+
+     MLR034.ARC     40442 02-11-89  Mailer v0.34
+     NODECOMP.ARC   23311 02-11-89  Nodelist compiler
+
+     SCHED0-5.ARC   13968 07-19-88  Scheduler v0.50, timed events
+     FILER7.ARC     28110 01-06-89  Filer sub-system
+     DSYST130.ARC   11131 09-04-88  Statistic program for Daisy
+     DSY2G-S.ARC    89663 08-22-88  Source code of Daisy V2g
+
+     The Daisy support echo, echo key DAISY, is also available from
+     3:700/18 or 3:700/0(Mail Gateway), it has quite a low turnover.
+
+     The Daisy support board is Daisy Information Gateway
+     3:700/719(700), +852-3-765-6899, 1200 baud, 24 hours.  You won't
+     find this in your Nodelist for reasons as given above.
+
